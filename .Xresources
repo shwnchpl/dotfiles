@@ -1,0 +1,127 @@
+! #include </home/moth/Downloads/JLErvin/dotfiles/xps/.config/colors/orange>
+#include </home/moth/.config/colors/wwpop.h>
+
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+!-------------------------------------------------------------------------------
+! URxvt settings
+! More info at:
+! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
+!-------------------------------------------------------------------------------
+
+URxvt.iso14755: False
+
+URxvt.depth:                32
+URxvt.geometry:             120x40
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            250
+URxvt.internalBorder:       3
+URxvt.lineSpace:            1
+
+! Fonts
+URxvt.allow_bold:           false
+URxvt*font: xft:Monospace:pixelsize=14
+URxvt*boldFont: xft:Monospace:pixelsize=14
+
+! Fix font space
+URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
+
+! Cursor
+URxvt.cursorBlink:          false
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+! special
+URxvt.foreground:   wwpop_fg
+URxvt.background:   wwpop_bg
+URxvt.cursorColor:  wwpop_cc
+
+! black
+URxvt.color0:       wwpop_c0
+URxvt.color8:       wwpop_c8
+
+! red
+URxvt.color1:       wwpop_c1
+URxvt.color9:       wwpop_c9
+
+! green
+URxvt.color2:       wwpop_c2
+URxvt.color10:      wwpop_c10
+
+! yellow
+URxvt.color3:       wwpop_c3
+URxvt.color11:      wwpop_c11
+
+! blue
+URxvt.color4:       wwpop_c4
+URxvt.color12:      wwpop_c12
+
+! magenta
+URxvt.color5:       wwpop_c5
+URxvt.color13:      wwpop_c13
+
+! cyan
+URxvt.color6:       wwpop_c6
+URxvt.color14:      wwpop_c14
+
+! white
+URxvt.color7:       wwpop_c7
+URxvt.color15:      wwpop_c14
+
+! ------------------------------------------------------------------------------
+! go dawgs [SHAWN] (we'll borrow this guy's Jackson for now, I guess)
+! ------------------------------------------------------------------------------
+
+! Colors
+*background:   wwpop_bg
+*foreground:   wwpop_fg
+*color0:      wwpop_c0
+*color8:      wwpop_c8
+*color1:      wwpop_c1
+*color9:      wwpop_c9
+*color2:      wwpop_c2
+*color10:     wwpop_c10
+*color3:      wwpop_c3
+*color11:     wwpop_c11
+*color4:      wwpop_c4
+*color12:     wwpop_c12
+*color5:      wwpop_c5
+*color13:     wwpop_c13
+*color6:      wwpop_c6
+*color14:     wwpop_c14
+*color7:      wwpop_c7
+*color15:     wwpop_c15
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: wwpop_bg, cyn_f, wwpop_bg
+rofi.color-normal: wwpop_bg, wwpop_fg, wwpop_bg, cyn_f, wwpop_fg
+rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3
+rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
+rofi.width: 16
+rofi.font: Monospace 12

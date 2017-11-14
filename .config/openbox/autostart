@@ -1,0 +1,10 @@
+
+# Start xscreensaver for screen locking purposes
+xscreensaver &
+
+# Apply wallpaper
+feh --bg-fill /home/moth/.config/wallpaper/misty_road.jpg &
+
+# Start polybar
+polybar base &
+
