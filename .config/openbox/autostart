@@ -1,6 +1,9 @@
 
 # Start xscreensaver for screen locking purposes
-xscreensaver &
+xscreensaver -no-splash &
+
+# Configure touchpad behavior
+synclient PalmDetect=1 VertScrollDelta=-247 HorizScrollDelta=-247 MaxTapTime=0 &
 
 # Apply wallpaper
 feh --bg-fill /home/moth/.config/wallpaper/misty_road.jpg &

@@ -628,6 +628,7 @@
       </mousebind>
     </context>
     <context name="Desktop">
+      <!-- Disable scrolling to change desktop. --> <!--
       <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
@@ -657,7 +658,7 @@
         <action name="GoToDesktop">
           <to>next</to>
         </action>
-      </mousebind>
+      </mousebind> -->
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
