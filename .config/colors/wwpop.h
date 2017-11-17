@@ -1,3 +1,7 @@
+!
+! WWpop - White Water/Walker Popsicle color scheme
+!
+
 #define blk_f    #272822
 #define blk_b    #75715e
 #define red_f    #f92672
@@ -15,23 +19,23 @@
 #define wht_f    #f8f8f2
 #define wht_b    #f9f8f5
 
-#define wwpop_bg       #272823
-#define wwpop_fg       #f8f8f2
-#define wwpop_cc       #c77400
+#define theme_bg       #272823
+#define theme_fg       #f8f8f2
+#define theme_cc       #c77400
 
-#define wwpop_c0 blk_f
-#define wwpop_c1 red_f
-#define wwpop_c2 grn_f
-#define wwpop_c3 yel_f
-#define wwpop_c4 blu_f
-#define wwpop_c5 mag_f
-#define wwpop_c6 cyn_f
-#define wwpop_c7 wht_f
-#define wwpop_c8 blk_b
-#define wwpop_c9 red_b
-#define wwpop_c10 grn_b
-#define wwpop_c11 yel_b
-#define wwpop_c12 blu_b
-#define wwpop_c13 mag_b
-#define wwpop_c14 cyn_b
-#define wwpop_c15 wht_b
+#define theme_c0 blk_f
+#define theme_c1 red_f
+#define theme_c2 grn_f
+#define theme_c3 yel_f
+#define theme_c4 blu_f
+#define theme_c5 mag_f
+#define theme_c6 cyn_f
+#define theme_c7 wht_f
+#define theme_c8 blk_b
+#define theme_c9 red_b
+#define theme_c10 grn_b
+#define theme_c11 yel_b
+#define theme_c12 blu_b
+#define theme_c13 mag_b
+#define theme_c14 cyn_b
+#define theme_c15 wht_b

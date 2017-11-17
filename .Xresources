@@ -1,5 +1,6 @@
 ! #include </home/moth/Downloads/JLErvin/dotfiles/xps/.config/colors/orange>
 #include </home/moth/.config/colors/wwpop.h>
+! #include </home/moth/.config/colors/abw.h>
 
 !-------------------------------------------------------------------------------
 ! Xft settings
@@ -55,72 +56,72 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 
 ! special
-URxvt.foreground:   wwpop_fg
-URxvt.background:   wwpop_bg
-URxvt.cursorColor:  wwpop_cc
+URxvt.foreground:   theme_fg
+URxvt.background:   theme_bg
+URxvt.cursorColor:  theme_cc
 
 ! black
-URxvt.color0:       wwpop_c0
-URxvt.color8:       wwpop_c8
+URxvt.color0:       theme_c0
+URxvt.color8:       theme_c8
 
 ! red
-URxvt.color1:       wwpop_c1
-URxvt.color9:       wwpop_c9
+URxvt.color1:       theme_c1
+URxvt.color9:       theme_c9
 
 ! green
-URxvt.color2:       wwpop_c2
-URxvt.color10:      wwpop_c10
+URxvt.color2:       theme_c2
+URxvt.color10:      theme_c10
 
 ! yellow
-URxvt.color3:       wwpop_c3
-URxvt.color11:      wwpop_c11
+URxvt.color3:       theme_c3
+URxvt.color11:      theme_c11
 
 ! blue
-URxvt.color4:       wwpop_c4
-URxvt.color12:      wwpop_c12
+URxvt.color4:       theme_c4
+URxvt.color12:      theme_c12
 
 ! magenta
-URxvt.color5:       wwpop_c5
-URxvt.color13:      wwpop_c13
+URxvt.color5:       theme_c5
+URxvt.color13:      theme_c13
 
 ! cyan
-URxvt.color6:       wwpop_c6
-URxvt.color14:      wwpop_c14
+URxvt.color6:       theme_c6
+URxvt.color14:      theme_c14
 
 ! white
-URxvt.color7:       wwpop_c7
-URxvt.color15:      wwpop_c14
+URxvt.color7:       theme_c7
+URxvt.color15:      theme_c14
 
 ! ------------------------------------------------------------------------------
-! go dawgs [SHAWN] (we'll borrow this guy's Jackson for now, I guess)
+! Theme colors. Same as terminal colors for now.
 ! ------------------------------------------------------------------------------
 
 ! Colors
-*background:   wwpop_bg
-*foreground:   wwpop_fg
-*color0:      wwpop_c0
-*color8:      wwpop_c8
-*color1:      wwpop_c1
-*color9:      wwpop_c9
-*color2:      wwpop_c2
-*color10:     wwpop_c10
-*color3:      wwpop_c3
-*color11:     wwpop_c11
-*color4:      wwpop_c4
-*color12:     wwpop_c12
-*color5:      wwpop_c5
-*color13:     wwpop_c13
-*color6:      wwpop_c6
-*color14:     wwpop_c14
-*color7:      wwpop_c7
-*color15:     wwpop_c15
+*background:   theme_bg
+*foreground:   theme_fg
+*color0:      theme_c0
+*color8:      theme_c8
+*color1:      theme_c1
+*color9:      theme_c9
+*color2:      theme_c2
+*color10:     theme_c10
+*color3:      theme_c3
+*color11:     theme_c11
+*color4:      theme_c4
+*color12:     theme_c12
+*color5:      theme_c5
+*color13:     theme_c13
+*color6:      theme_c6
+*color14:     theme_c14
+*color7:      theme_c7
+*color15:     theme_c15
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: wwpop_bg, cyn_f, wwpop_bg
-rofi.color-normal: wwpop_bg, wwpop_fg, wwpop_bg, cyn_f, wwpop_fg
+rofi.color-window: theme_bg, cyn_f, theme_bg
+rofi.color-normal: theme_bg, theme_fg, theme_bg, cyn_f, theme_fg
 rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3
 rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
 rofi.width: 16
