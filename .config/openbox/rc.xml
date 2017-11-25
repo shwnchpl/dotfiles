@@ -368,6 +368,22 @@
         <command>scrot</command>
       </action>
     </keybind>
+    <!-- Add bindings for volume keys. -->
+    <keybind key="XF86AudioRaiseVolume">
+     <action name="Execute"> 
+       <command>amixer -D pulse sset Master 10%+</command>
+     </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+     <action name="Execute">
+       <command>amixer -D pulse sset Master 10%-</command>
+     </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+     <action name="Execute"> 
+       <command>amixer -D pulse sset Master toggle</command>
+     </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
