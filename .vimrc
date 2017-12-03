@@ -16,13 +16,13 @@ filetype off                  " required
 set backspace=indent,eol,start
 
 " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-" Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Mathematica syntax highlighting
 " Plugin 'rsmenon/vim-mathematica'
@@ -41,11 +41,20 @@ set backspace=indent,eol,start
 " let g:rust_recommended_style = 0
 
 " nerdtree source tree view plugin
-" Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
+
+" CtrlP fuzzy find
+Plugin 'kien/ctrlp.vim'
+
+" Required for Vim Gist plugin
+Plugin 'mattn/webapi-vim'
+
+" Vim Gist plugin
+Plugin 'mattn/gist-vim' 
 
 " All of your Plugins must be added before the following line
-" call vundle#end()            " required
-" filetype plugin indent on    " required
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " Regular configuration
 set expandtab
