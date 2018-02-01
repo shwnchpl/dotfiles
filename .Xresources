@@ -21,7 +21,7 @@ Xft.hintstyle:              hintslight
 URxvt.iso14755: False
 
 URxvt.depth:                32
-URxvt.geometry:             120x40
+URxvt.geometry:             100x30
 URxvt.transparent:          false
 URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
@@ -33,8 +33,10 @@ URxvt.lineSpace:            1
 
 ! Fonts
 URxvt.allow_bold:           false
-URxvt*font: xft:Monospace:pixelsize=14
-URxvt*boldFont: xft:Monospace:pixelsize=14
+!URxvt*font: xft:Monospace:pixelsize=14
+!URxvt*boldFont: xft:Monospace:pixelsize=14
+URxvt*font: xft:Fixedsys Excelsior 301:pixelsize=20
+URxvt*boldFont: xft:Fixedsys Excelsior 301:pixelsize=20
 
 ! Fix font space
 URxvt*letterSpace: -1
