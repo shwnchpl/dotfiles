@@ -119,3 +119,6 @@ fi
 set -o vi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Use vim as default editor.
+export EDITOR=vim

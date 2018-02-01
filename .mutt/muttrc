@@ -1,0 +1,17 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set imap_user = 'shwnmchpl@gmail.com'
+set from='shwnchpl@gmail.com'
+set realname='Shawn M. Chapla'
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "imaps://imap.gmail.com:993/INBOX"
+set postponed = "+[Gmail]/Drafts"
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+set smtp_url = "smtps://shwnmchpl@smtp.gmail.com:465/" 
+set move = no
+set imap_keepalive = 900
+
+source ~/.mutt/colors.muttrc
+source "gpg -d ~/.mutt/passwords.gpg |"
