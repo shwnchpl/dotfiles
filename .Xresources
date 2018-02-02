@@ -36,9 +36,9 @@ URxvt.allow_bold:           false
 !URxvt*font: xft:Monospace:pixelsize=14
 !URxvt*boldFont: xft:Monospace:pixelsize=14
 
-! Seems to look best at 24px, but that's a little big.
-URxvt*font: xft:Fixedsys Excelsior 301:pixelsize=20
-URxvt*boldFont: xft:Fixedsys Excelsior 301:pixelsize=20
+! Seems to look best at 24px, but that seems a little big.
+URxvt*font: xft:Fixedsys Excelsior 301:pixelsize=24
+URxvt*boldFont: xft:Fixedsys Excelsior 301:pixelsize=24
 
 ! Fix font space
 URxvt*letterSpace: -1
