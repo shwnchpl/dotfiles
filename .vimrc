@@ -56,18 +56,33 @@ Plugin 'mattn/gist-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Regular configuration
-set expandtab
+" Global configurations
 set number
 set hlsearch
-
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set textwidth=0
-
+set title
 syntax enable
 filetype on
+
+if exists('krnl_src_fmt')
+  set tabstop=8
+  set softtabstop=8
+  set shiftwidth=8
+  set noexpandtab
+
+  set colorcolumn=81
+  highlight ColorColum ctermbg=Black ctermfg=DarkRed
+
+  " Uncomment to display tabs, trailing whitespace, etc.
+  " set list listchars=tab:»\ ,trail:.,extends:»,precedes:«
+else
+  " Regular configuration
+  set expandtab
+
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+  set textwidth=0
+endif
 
 " Add mathematica syntax highlighting for .mma and .wl files.
 " au BufNewFile,BufRead *.mma set filetype=mma
