@@ -63,6 +63,9 @@ set title
 syntax enable
 filetype on
 
+" Upward search support for ctags.
+set tags=./tags,./TAGS,tags;~,TAGS;~
+
 if exists('krnl_src_fmt')
   set tabstop=8
   set softtabstop=8
