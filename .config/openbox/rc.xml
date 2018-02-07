@@ -384,6 +384,16 @@
        <command>amixer -D pulse sset Master toggle</command>
      </action>
     </keybind>
+    <keybind key="XF86MonBrightnessUp">
+     <action name="Execute"> 
+       <command>xbacklight +10</command>
+     </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+     <action name="Execute"> 
+       <command>xbacklight -10</command>
+     </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
