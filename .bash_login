@@ -3,7 +3,7 @@ if [ $TERM == "vt220" ]; then
   TERM="linux"
 fi
 
-. .profile
+. ~/.profile
 
 # Quick and dirty method for setting serial console size based on
 # kernel command line parameters passed in via QEMU. Probably not
