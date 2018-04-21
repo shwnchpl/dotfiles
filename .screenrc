@@ -1,0 +1,51 @@
+# Skip the startup message.
+startup_message off
+
+# Go to home directory.
+chdir
+
+# Automatically detatch on hangup.
+autodetach on
+
+# Change default scrollback value for new windows.
+defscrollback 10000
+
+# Start with visual bell off as default.
+vbell off
+
+# Get rid of annoying logging messages when closing a window.
+deflogin off
+
+# Set shell title so that screen knows when we're at a prompt.
+shelltitle "$ |bash"
+
+# Key bindings.
+
+# Change title with ctrl-a - ,
+bind , title
+
+# Caption
+# caption always "%{= bb}%{+b w}%n %t %h %=%l %H %c"
+
+# Status line
+# Current status line:
+hardstatus alwayslastline "%{= rw} %-w%{= wr} [% %t] %{-}%+w %= | @%H | %l | %Y-%m-%d %c "
+
+# Which is based on:
+# hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= | @%H | %l | %Y-%m-%d %c "
+
+# Several other options include:
+#hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= %-w%{= rk} %{-}%+w @%H %-w%{= rk} %{-}%+w %l %-w%{= rk} %{-}%+w %Y-%m-%d %c "
+#hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= %-w%{= rk} %{-}%+w @%H %-w%{= rk} %{-}%+w %l %-w%{= rk} %{-}%+w %Y-%m-%d %c "
+#hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= %{= rw} @%H | %l | %Y-%m-%d %c "
+#hardstatus alwayslastline "%{= 2k} %-w%{= rw} [% %t] %{-}%+w %= %-w%{= rw} @%H %{-} %-w%{= rw} %l %{-}%+w %-w%{= rw} %Y-%m-%d %c %{-} "
+#hardstatus alwayslastline "%{b kw}%H %{r}%1` %{w}| %{g}%c %{w}| %{y}%d.%m.%Y %{w}| %{g}%l %{w}| %{-b kw}%u %-Lw%{= rW}%50> %n%f %t %{-}%+Lw%<"
+#hardstatus alwayslastline "\033[m\033[42;30m %m%d \033[m \033[42;30m%c\033[m \033[42;30m %w \033[m"
+#hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< "
+#hardstatus alwayslastline "%{bw}%1`%= %{+b ky}| %c:%s |%{+b rw} ip: %2` | vpn: %3`"
+#hardstatus alwayslastline "[%D,%c]  %-Lw%{= RW}%50>%n%f* %t%{-}%+Lw%<"
+#hardstatus alwayslastline "\033[m\033[42;30m %m%d \033[m \033[42;30m%c\033[m \033[42;30m %w \033[m"
+#hardstatus alwayslastline "[%D, %d/%m/%y %C %a]  %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
+#hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
+#hardstatus alwayslastline "%{= wk} %-w%{= KW} [% %t] %{-}%+w %= | @%H | %l | %Y-%m-%d %c "
+
