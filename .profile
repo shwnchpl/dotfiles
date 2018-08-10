@@ -19,6 +19,3 @@ fi
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-# This probably isn't the best place for this, but for now it'll do.
-xset +fp /home/moth/.fonts
-xset fp rehash

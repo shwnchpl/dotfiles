@@ -1,0 +1,23 @@
+# This is just for QEMU purposes, to allow for color on login prompts.
+if [ $TERM == "vt220" ]; then
+  TERM="linux"
+fi
+
+. ~/.profile
+
+# Quick and dirty method for setting serial console size based on
+# kernel command line parameters passed in via QEMU. Probably not
+# the best place for this, but for now it'll get the job done.
+for x in $(cat /proc/cmdline); do
+  case $x in
+  qemu_serial_size_rows=*)
+    SERIAL_ROWS=${x#qemu_serial_size_rows=}
+    stty rows $SERIAL_ROWS
+    ;;
+  qemu_serial_size_cols=*)
+    SERIAL_COLS=${x#qemu_serial_size_cols=}
+    stty cols $SERIAL_COLS
+    ;;
+  esac
+done
+

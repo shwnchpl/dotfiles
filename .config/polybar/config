@@ -42,11 +42,12 @@ malfg=${self.foreground}
 ;--------------------------------------------
 
 [bar/base]
+monitor=${env:MONITOR:eDP-1}
 dpi=192
 width=100%
 height=20 
 offset-x=0 
-offset-y=0 
+offset-y=0
 foreground=${colors.foreground} 
 background=${colors.background}
 border-top-size=7
@@ -58,16 +59,10 @@ padding-left=1
 padding-right=0 
 module-margin-left=0 
 module-margin-right=0  
-;font-N=<fontconfig pattern>;<vertical offset>
-;font-0=WunconSiji:size=14;2
-;font-1=UW ttyp0:pixelsize=16;2
-;font-2=GohuFont:pixelsize=16;0
-font-0=Siji:size=8;-2
-font-1=Monospace:pizelsize=14;2
-;modules-left=openbox  padding xwindow padding backlight 
+font-0=Siji:size=14;2
+font-1=Monospace:size=8;3
 modules-left=openbox padding xwindow padding
 modules-center= 
-; modules-right=emails padding network padding volume padding battery padding date padding
 modules-right=padding network padding volume padding battery padding date padding
 
 ;--------------------------------------------
@@ -123,7 +118,8 @@ ramp-capacity-foreground=${colors.batfg}
 animation-charging-framerate=750
 
 [module/volume]
-type=internal/volume
+type=internal/alsa
+; master-soundcard=hw:1 ; Needed if no puleaudio
 format-volume =<label-volume>
 format-muted =<label-muted>
 ramp-volume-background=${colors.volbg}
@@ -198,31 +194,20 @@ label-empty-padding=1
 label-empty-background=${colors.obibg}
 label-empty-foreground=${colors.obifg}
 
-;[module/backlight]
-;type = internal/xbacklight
-;output = eDP-1
-;enable-scroll = false
-;format = <label>
-;label = %percentage%%
-;ramp-0 = 🌕
-;ramp-1 = 🌔
-;ramp-2 = 🌓
-;ramp-3 = 🌒
-;ramp-4 = 🌑
-;bar-width = 10
-;bar-indicator = |
-;bar-fill = ─
-;bar-empty = ─
-
-;[module/emails]
-;type = custom/script
-;exec = python /home/jlervin/.scripts/email.py
-;tail = true
-;interval = 90
-;format = <label>
-;format-background = ${colors.malbg}
-;format-foreground = ${colors.malfg}
-;format-padding = 1 
-;label =  %output% 
+; [module/backlight]
+; type = internal/xbacklight
+; output = eDP-1
+; enable-scroll = false
+; format = <label>
+; label = %percentage%%
+; ramp-0 = 🌕
+; ramp-1 = 🌔
+; ramp-2 = 🌓
+; ramp-3 = 🌒
+; ramp-4 = 🌑
+; bar-width = 10
+; bar-indicator = |
+; bar-fill = ─
+; bar-empty = ─
 
 ; vim:ft=dosini
