@@ -1,0 +1,12 @@
+[Unit]
+Description=i3lock on sleep for user %i
+Before=sleep.target
+
+[Service]
+User=%i
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/i3lock -i /home/%i/.config/i3lock/lock_screen.png
+
+[Install]
+WantedBy=sleep.target
