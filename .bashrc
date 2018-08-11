@@ -132,3 +132,6 @@ set -o vi
 
 # Use vim as default editor.
 export EDITOR=vim
+
+# Utility to open all files containing some pattern in Vim.
+vimallwith() { grep --color=none -rIl $1 . | xargs bash -c '</dev/tty vim "$@"' ignoreme; }
