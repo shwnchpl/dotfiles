@@ -132,5 +132,8 @@ map <C-@> :!ctags -R .<CR>
 " Upward search support for ctags.
 set tags=./tags,./TAGS,tags;~,TAGS;~
 
-" Turn on spell check by default.
-set spell spelllang=en_us
+" Turn off spell check by default.
+set spell spelllang=
+
+" Quickly open files.
+map <silent> <C-k> :e .<CR>
