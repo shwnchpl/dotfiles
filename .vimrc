@@ -104,7 +104,7 @@ execute "set <M-7>=\0337"
 execute "set <M-8>=\0338"
 execute "set <M-9>=\0339"
 
-map <M-;> :ls<CR>
+map <M-;> :ls<CR>:Buffer<Space>
 map <M-1> :b1<CR>
 map <M-2> :b2<CR>
 map <M-3> :b3<CR>
@@ -136,4 +136,4 @@ set tags=./tags,./TAGS,tags;~,TAGS;~
 set spell spelllang=
 
 " Quickly open files.
-map <silent> <C-k> :e .<CR>
+map <silent> <C-k> :Ex<CR>
