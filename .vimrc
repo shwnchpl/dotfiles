@@ -2,8 +2,7 @@
 " Version: 1
 " Author: Shawn M. Chapla
 " Created: 10 Oct 2016 20:35:00
-
-" Last-modified: 10 Aug 2018 10:02:00
+" Last-modified: 28 Oct 2018 17:00:00
 
 " Vundle stuff
 set nocompatible              " be iMproved, required
@@ -14,6 +13,10 @@ filetype off                  " required
 
 " Normal backspacing.
 set backspace=indent,eol,start
+
+" Uncomment for a status line with file name.
+" set statusline+=%f
+" set laststatus=2
 
 " set the runtime path to include Vundle and initialize
 "set rtp+=~/.vim/bundle/Vundle.vim
@@ -43,6 +46,9 @@ set backspace=indent,eol,start
 " nerdtree source tree view plugin
 "Plugin 'scrooloose/nerdtree'
 
+" Colorschemes
+" Plugin 'flazz/vim-colorschemes'
+
 " CtrlP fuzzy find
 "Plugin 'kien/ctrlp.vim'
 
@@ -50,7 +56,7 @@ set backspace=indent,eol,start
 "Plugin 'mattn/webapi-vim'
 
 " Vim Gist plugin
-"Plugin 'mattn/gist-vim' 
+"Plugin 'mattn/gist-vim'
 
 " All of your Plugins must be added before the following line
 "call vundle#end()            " required
@@ -89,10 +95,18 @@ endif
 " displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" Make all trailing whitespace characters and tabs visible.
+" Make all trailing whitespace and tabs visible.
 set list listchars=tab:»\ ,trail:#,extends:»,precedes:«
 
+" Make them really ugly too.
+" :hi SpecialKey ctermfg=grey ctermbg=red guifg=grey70
+
 " Fast buffer movement.
+" execute "set <M-j>=\033j"
+" execute "set <M-k>=\033k"
+" execute "set <M-l>=\033l"
+" execute "set <M-[>=\033["
+" execute "set <M-]>=\033]"
 execute "set <M-;>=\033;"
 execute "set <M-1>=\0331"
 execute "set <M-2>=\0332"
@@ -103,8 +117,10 @@ execute "set <M-6>=\0336"
 execute "set <M-7>=\0337"
 execute "set <M-8>=\0338"
 execute "set <M-9>=\0339"
-
-map <M-;> :ls<CR>:Buffer<Space>
+"execute "set <M-h>=\033h"
+" map <M-]> :bnext<CR>
+" map <M-[> :bprev<CR>
+map <M-;> :ls<CR>:buffer<Space>
 map <M-1> :b1<CR>
 map <M-2> :b2<CR>
 map <M-3> :b3<CR>
@@ -132,8 +148,35 @@ map <C-@> :!ctags -R .<CR>
 " Upward search support for ctags.
 set tags=./tags,./TAGS,tags;~,TAGS;~
 
-" Turn off spell check by default.
+" Turn on/off spell check by default.
+" set spell spelllang=en_us
 set spell spelllang=
 
-" Quickly open files.
-map <silent> <C-k> :Ex<CR>
+" Quick shortcut for opening new files visually.
+map <C-k> :Ex<CR>
+
+" Another fast buffer switching option.
+nnoremap ,b :ls<CR>:buffer<Space>
+
+" Comment and uncomment lines of code fast.
+augroup fast_src_comments
+    autocmd!
+    autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+    autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+    autocmd FileType conf,fstab       let b:comment_leader = '# '
+    autocmd FileType tex              let b:comment_leader = '% '
+    autocmd FileType mail             let b:comment_leader = '> '
+    autocmd FileType vim              let b:comment_leader = '" '
+augroup END
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+" Set 256 color mode.
+" set t_Co=256
+
+" Set color scheme.
+" colorscheme Monokai
+
+" Make spelling highlight color more readable so I'm less
+" apt to turn it off and make mistakes.
+"hi SpellBad ctermbg=005
