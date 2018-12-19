@@ -49,3 +49,15 @@ hardstatus alwayslastline "%{= rw} %-w%{= wr} [% %t] %{-}%+w %= | @%H | %l | %Y-
 #hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 #hardstatus alwayslastline "%{= wk} %-w%{= KW} [% %t] %{-}%+w %= | @%H | %l | %Y-%m-%d %c "
 
+# Custom bindings for quick vertical splitting into an open window.
+bind -c qvsplit 0 eval "split -v" "focus right" "select 0" "focus left"
+bind -c qvsplit 1 eval "split -v" "focus right" "select 1" "focus left"
+bind -c qvsplit 2 eval "split -v" "focus right" "select 2" "focus left"
+bind -c qvsplit 3 eval "split -v" "focus right" "select 3" "focus left"
+bind -c qvsplit 4 eval "split -v" "focus right" "select 4" "focus left"
+bind -c qvsplit 5 eval "split -v" "focus right" "select 5" "focus left"
+bind -c qvsplit 6 eval "split -v" "focus right" "select 6" "focus left"
+bind -c qvsplit 7 eval "split -v" "focus right" "select 7" "focus left"
+bind -c qvsplit 8 eval "split -v" "focus right" "select 8" "focus left"
+bind -c qvsplit 9 eval "split -v" "focus right" "select 9" "focus left"
+bind V command -c qvsplit
