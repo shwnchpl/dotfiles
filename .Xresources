@@ -50,7 +50,7 @@ URxvt.scrollBar:            false
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          firefox
+URxvt.url-launcher:         /usr/bin/xdg-open
 
 ! Cursor
 URxvt.cursorBlink:          false
