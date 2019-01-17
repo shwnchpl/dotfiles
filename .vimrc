@@ -175,7 +175,8 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 " set t_Co=256
 
 " Set color scheme.
-" colorscheme Monokai
+" set background=dark
+" colorscheme OceanicNext
 
 " Make spelling highlight color more readable so I'm less
 " apt to turn it off and make mistakes.
