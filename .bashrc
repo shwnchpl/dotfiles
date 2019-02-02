@@ -145,3 +145,12 @@ alias xclip='xclip -selection clipboard'
 if [ -x "$(command -v vivid)" ]; then
   export LS_COLORS=$(vivid -m 8-bit generate molokai)
 fi
+
+# Add ~/bin to path.
+export PATH="$HOME/bin:$PATH"
+
+# Add pyenv to the path.
+export PYENV_ROOT="$HOME/bin/pyenv"
+export PATH="$HOME/bin/pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
