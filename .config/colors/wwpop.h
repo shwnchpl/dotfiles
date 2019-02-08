@@ -5,7 +5,7 @@
 #define blk_f    #272822
 #define blk_b    #75715e
 #define red_f    #f92672
-#define red_b    #f92672 
+#define red_b    #f92672
 #define grn_f    #a6e22e
 #define grn_b    #a6e22e
 #define yel_f    #f4bf75

@@ -1,5 +1,5 @@
-! #include </home/moth/Downloads/JLErvin/dotfiles/xps/.config/colors/orange>
-#include </home/moth/.config/colors/wwpop.h>
+#include </home/moth/.config/colors/flatui.h>
+! #include </home/moth/.config/colors/wwpop.h>
 ! #include </home/moth/.config/colors/abw.h>
 
 !-------------------------------------------------------------------------------
