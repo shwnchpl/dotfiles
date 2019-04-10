@@ -146,5 +146,8 @@ if [ -x "$(command -v vivid)" ]; then
   export LS_COLORS=$(vivid -m 8-bit generate molokai)
 fi
 
-# Add ~/bin to path.
-export PATH="$HOME/bin:$PATH"
+# Add /sbin and ~/bin to path.
+export PATH="$HOME/bin:/sbin:$PATH"
+
+# Load SSH configuration.
+. ~/.bash_ssh
