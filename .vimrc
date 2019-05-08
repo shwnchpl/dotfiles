@@ -58,6 +58,9 @@ set backspace=indent,eol,start
 " Vim Gist plugin
 "Plugin 'mattn/gist-vim'
 
+" nnn file manager plugin
+"Plugin 'mcchrish/nnn.vim'
+
 " All of your Plugins must be added before the following line
 "call vundle#end()            " required
 filetype plugin indent on    " required
@@ -154,6 +157,7 @@ set spell spelllang=
 
 " Quick shortcut for opening new files visually.
 map <C-k> :Ex<CR>
+"map <C-k> :NnnPicker '%:p:h'<CR>
 
 " Another fast buffer switching option.
 nnoremap ,b :ls<CR>:buffer<Space>

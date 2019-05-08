@@ -151,3 +151,22 @@ export PATH="$HOME/bin:/sbin:$PATH"
 
 # Load SSH configuration.
 . ~/.bash_ssh
+
+# Use EDITOR in nnn for text files.
+export NNN_USE_EDITOR=1
+
+# Don't open files with -> or 'l' since that behaves
+# oddly in vim.
+export NNN_RESTRICT_NAV_OPEN=1
+
+# Add "quitcd" nnn support.
+export NNN_TMPFILE="/tmp/nnn"
+n()
+{
+        nnn "$@"
+
+        if [ -f $NNN_TMPFILE ]; then
+                . $NNN_TMPFILE
+                rm -f $NNN_TMPFILE > /dev/null
+        fi
+}
