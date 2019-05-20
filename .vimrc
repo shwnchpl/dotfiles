@@ -175,12 +175,26 @@ augroup END
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
+" Show hidden files in nnn.
+let g:nnn#command = 'nnn -d'
+
+" Make selecting an auto-complete suggestion easier.
+inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
+inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-k>"))
+
+" Make auto-complete suggestions not check include files
+" by default as this takes way too long on larger projects.
+set complete-=i
+
 " Set 256 color mode.
 " set t_Co=256
 
 " Set color scheme.
 " set background=dark
 " colorscheme OceanicNext
+" colorscheme Atelier_ForestDark
+" colorscheme SerialExperimentsLein
+" colorscheme sean
 
 " Make spelling highlight color more readable so I'm less
 " apt to turn it off and make mistakes.

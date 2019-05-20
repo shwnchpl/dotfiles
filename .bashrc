@@ -159,6 +159,9 @@ export NNN_USE_EDITOR=1
 # oddly in vim.
 export NNN_RESTRICT_NAV_OPEN=1
 
+# Show hidden files in nnn.
+alias nnn="nnn -d"
+
 # Add "quitcd" nnn support.
 export NNN_TMPFILE="/tmp/nnn"
 n()
