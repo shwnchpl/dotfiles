@@ -1,1 +1,7 @@
+# Use vim bindings.
 set editing-mode vi
+
+# Make tab completion more vim-like.
+TAB: menu-complete
+set show-all-if-ambiguous on
+set menu-complete-display-prefix on
