@@ -1,0 +1,27 @@
+# .muttrc for Fastmail account
+# ================  IMAP ====================
+set imap_user = 'shawn@chapla.email'
+set imap_pass = 'REDACTED SECRET PASSWORD'
+set spoolfile = 'imaps://imap.fastmail.com/'
+set folder = 'imaps://imap.fastmail.com/INBOX'
+set record = '+Sent Items'
+set postponed = '+Drafts'
+set mbox = '+Archive'
+set read_inc = 25
+set write_inc = 25
+
+# ================  SMTP  ====================
+set smtp_url = 'smtps://shawn@chapla.email@smtp.fastmail.com'
+set smtp_pass = $imap_pass
+set ssl_force_tls = yes # Require encrypted connection
+
+# ================  Composition  ====================
+set editor = `echo \$EDITOR`
+set edit_headers = yes  # See the headers when editing
+set charset = UTF-8     # value of $LANG; also fallback for send_charset
+
+# Sender, email address, and sign-off line must match
+unset use_domain        # because joe@localhost is just embarrassing
+set realname = "Shawn M. Chapla"
+set from = "shawn@chapla.email" # Or 'Shawn M. Chapla <shawn@chapla.email>'?
+set use_from = yes
