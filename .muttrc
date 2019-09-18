@@ -3,10 +3,10 @@
 set imap_user = 'shawn@chapla.email'
 set imap_pass = 'REDACTED SECRET PASSWORD'
 set spoolfile = 'imaps://imap.fastmail.com/'
-set folder = 'imaps://imap.fastmail.com/INBOX'
-set record = '+Sent Items'
-set postponed = '+Drafts'
-set mbox = '+Archive'
+set folder = 'imaps://imap.fastmail.com/'
+set record = '=Sent'
+set postponed = '=Drafts'
+set mbox = '=Archive'
 set read_inc = 25
 set write_inc = 25
 
