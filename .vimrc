@@ -61,6 +61,9 @@ set backspace=indent,eol,start
 " nnn file manager plugin
 "Plugin 'mcchrish/nnn.vim'
 
+" ANTLR4 syntax highlighting
+"Plugin 'dylon/vim-antlr'
+
 " All of your Plugins must be added before the following line
 "call vundle#end()            " required
 filetype plugin indent on    " required
@@ -84,9 +87,9 @@ else
   " Regular configuration
   set expandtab
 
-  set tabstop=2
-  set softtabstop=2
-  set shiftwidth=2
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
   set textwidth=0
 endif
 
@@ -195,6 +198,7 @@ set complete-=i
 " colorscheme Atelier_ForestDark
 " colorscheme SerialExperimentsLein
 " colorscheme sean
+colorscheme kalahari
 
 " Make spelling highlight color more readable so I'm less
 " apt to turn it off and make mistakes.
