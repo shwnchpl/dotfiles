@@ -189,6 +189,9 @@ inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-k>"))
 " by default as this takes way too long on larger projects.
 set complete-=i
 
+" Make new vertical splits open on the right.
+set spr
+
 " Set 256 color mode.
 " set t_Co=256
 
