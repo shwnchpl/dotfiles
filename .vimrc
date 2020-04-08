@@ -158,8 +158,8 @@ map <C-@> :!ctags -R .<CR>
 set tags=./tags,./TAGS,tags;~,TAGS;~
 
 " Turn on/off spell check by default.
-" set spell spelllang=en_us
-set spell spelllang=
+set spell spelllang=en_us
+" set spell spelllang=
 
 " Quick shortcut for opening new files visually.
 map <C-k> :Ex<CR>
