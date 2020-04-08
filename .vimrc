@@ -64,6 +64,9 @@ set backspace=indent,eol,start
 " ANTLR4 syntax highlighting
 "Plugin 'dylon/vim-antlr'
 
+" Nginx config file syntax highlighting
+" Plugin 'chr4/nginx.vim'
+
 " All of your Plugins must be added before the following line
 "call vundle#end()            " required
 filetype plugin indent on    " required
@@ -201,7 +204,7 @@ set spr
 " colorscheme Atelier_ForestDark
 " colorscheme SerialExperimentsLein
 " colorscheme sean
-colorscheme kalahari
+" colorscheme kalahari
 
 " Make spelling highlight color more readable so I'm less
 " apt to turn it off and make mistakes.
