@@ -188,6 +188,10 @@ let g:nnn#command = 'nnn -d'
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-k>"))
 
+" Command to save files as root using sudo, even when vim
+" was not opened as root.
+command WriteAsRoot w !sudo tee > /dev/null %
+
 " Make auto-complete suggestions not check include files
 " by default as this takes way too long on larger projects.
 set complete-=i
