@@ -66,8 +66,15 @@ case "$TERM" in
     ;;
 esac
 
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'$PS1'\$ '
+    # Uncomment to include Git branch in prompt. For reference, see
+    # https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt.
+    # PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[31m\]$(parse_git_branch)\[\e[0m\]\n'$PS1'\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'$PS1'\$ '
 fi
