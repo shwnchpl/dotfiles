@@ -1,1 +1,1 @@
-alias lkvim="vim --cmd 'let krnl_src_fmt=1'"
+alias lkvim="VIM_FMT_OVERRIDE=lk-src vim"
