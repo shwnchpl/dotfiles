@@ -1,27 +1,123 @@
-# .muttrc for Fastmail account
-# ================  IMAP ====================
-set imap_user = 'shawn@chapla.email'
-set imap_pass = 'REDACTED SECRET PASSWORD'
-set spoolfile = 'imaps://imap.fastmail.com/'
-set folder = 'imaps://imap.fastmail.com/'
-set record = '=Sent'
-set postponed = '=Drafts'
-set mbox = '=Archive'
-set read_inc = 25
-set write_inc = 25
+# File: .muttrc
+# Version: 1
+# Author: Shawn M. Chapla
+# Created: 25 May 2020
 
-# ================  SMTP  ====================
+#####################################################
+# [SEC_0x00] - Table of Contents
+####################################################
+
+# [SEC_0x00] - Table of Contents
+# [SEC_0x01] - Meta
+# [SEC_0x02] - Maildir
+# [SEC_0x03] - SMTP
+# [SEC_0x04] - Composition
+# [SEC_0x05] - Index
+# [SEC_0x06] - Key Bindings
+# [SEC_0x07] - Sidebar
+# [SEC_0x08] - Startup Commands
+
+####################################################
+# [SEC_0x01] - Meta
+####################################################
+
+set header_cache= "~/.cache/mutt"
+
+####################################################
+# [SEC_0x02] - Maildir
+####################################################
+
+set mbox_type   = Maildir
+set folder      = "~/mail/shawn@chapla.email/"
+set spoolfile   = "=INBOX"
+set record      = "=Sent"
+set mbox        = "=Archive"
+set postponed   = "=Drafts"
+set trash       = "=Trash"
+
+# Explicitly list these folders in this order for sidebar
+# purposes.
+mailboxes =INBOX =Sent =Archive =food@chapla.email
+
+# List the rest of the folders alphabetically, as they appear.
+mailboxes `\
+for file in ~/mail/shawn@chapla.email/*; do \
+  box=$(basename "$file"); \
+  if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
+      -a ! "$box" = '.subscriptions' ]; then \
+    echo -n "=$box "; \
+  fi; \
+done`
+
+####################################################
+# [SEC_0x03] - SMTP
+####################################################
+
 set smtp_url = 'smtps://shawn@chapla.email@smtp.fastmail.com'
-set smtp_pass = $imap_pass
-set ssl_force_tls = yes # Require encrypted connection
+set smtp_pass = '**********************************'
+set ssl_force_tls = yes
 
-# ================  Composition  ====================
-set editor = `echo \$EDITOR`
-set edit_headers = yes  # See the headers when editing
-set charset = UTF-8     # value of $LANG; also fallback for send_charset
+####################################################
+# [SEC_0x04] - Composition
+####################################################
 
-# Sender, email address, and sign-off line must match
-unset use_domain        # because joe@localhost is just embarrassing
+set editor = 'VIM_FMT_OVERRIDE=email vim'
+set edit_headers = yes
+set charset = UTF-8
+
+unset use_domain
 set realname = "Shawn M. Chapla"
-set from = "shawn@chapla.email" # Or 'Shawn M. Chapla <shawn@chapla.email>'?
+set from = "shawn@chapla.email"
 set use_from = yes
+
+####################################################
+# [SEC_0x05] - Index
+####################################################
+
+set sort        = threads
+set sort_aux    = reverse-last-date-received
+set sort_re
+
+set delete
+set delete_untag
+unset confirmappend
+
+####################################################
+# [SEC_0x06] - Key Bindings
+####################################################
+
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+bind index,pager \Cp sidebar-prev
+bind index,pager \Cn sidebar-next
+bind index,pager \Co sidebar-open
+
+macro index A '<save-message>=Archive/<enter>'
+macro index S '<check-stats>'
+macro index Z '<shell-escape>mbsync -a &<enter><check-stats>'
+
+####################################################
+# [SEC_0x07] - Sidebar
+####################################################
+
+set sidebar_visible
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_width = 25
+set sidebar_divider_char = ' | '
+set sidebar_indent_string = '  ''
+set sidebar_format = "%B %* %?N?%N/?%S"
+set sidebar_short_path = no
+set sidebar_folder_indent = no
+
+####################################################
+# [SEC_0x08] - Startup Commands
+####################################################
+push <check-stats>
