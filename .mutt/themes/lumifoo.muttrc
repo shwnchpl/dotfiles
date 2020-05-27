@@ -1,0 +1,134 @@
+# Generated .muttrc theme.
+# Based on https://git.sr.ht/~ben/cfg/tree/2b90c65225a3d7154fca2e9a723c2f5fe5ec06b8/mutt/solarized.muttrc
+# Based on https://github.com/altercation/mutt-colors-solarized/
+
+# The original by @altercation only works if mutt is linked against slang.
+# This color scheme has been modified to work with ncurses.
+
+# Highlight my name and other personally relevant strings
+color body color137 color234 "(shawn|chapla|shawn m\. chapla)"
+
+# Basic colors
+color normal color152 color234
+color error color132 color234
+color tilde color246 color234
+color message color72 color234
+color markers color132 color234
+color attachment default color234
+color search color182 color234
+color status color152 color246
+color indicator color252 color137
+color tree color137 color234 # arrow in threads
+color sidebar_divider color152 color234
+color prompt color152 color234
+
+# Basic monocolor screen
+mono bold bold
+mono underline underline
+mono indicator reverse
+mono error bold
+
+# Index
+color index color132 color234 "~D(!~p|~p)" # deleted
+color index color246 color234 ~F # flagged
+color index color181 color234 ~= # duplicate messages
+color index color151 color234 "~A!~N!~T!~p!~Q!~F!~D!~P" # the rest
+color index color132 color234 "~A" # all messages
+color index color181 color234 "~E" # expired messages
+color index color67 color234 "~N" # new messages
+color index color67 color234 "~O" # old messages
+color index color182 color234 "~Q" # messages that have been replied to
+color index color151 color234 "~R" # read messages
+color index color67 color234 "~U" # unread messages
+color index color67 color234 "~U~$" # unread, unreferenced messages
+color index color152 color234 "~v" # messages part of a collapsed thread
+color index color152 color234 "~P" # messages from me
+color index color72 color234 "~p!~F" # messages to me
+color index color72 color234 "~N~p!~F" # new messages to me
+color index color72 color234 "~U~p!~F" # unread messages to me
+color index color151 color234 "~R~p!~F" # messages to me
+color index color132 color234 "~F" # flagged messages
+color index color132 color234 "~F~p" # flagged messages to me
+color index color132 color234 "~N~F" # new flagged messages
+color index color132 color234 "~N~F~p" # new flagged messages to me
+color index color132 color234 "~U~F~p" # new flagged messages to me
+color index color246 color132 "~D" # deleted messages
+color index color151 color234 "~v~(!~N)" # collapsed thread with no unread
+color index color137 color234 "~v~(~N)" # collapsed thread with some unread
+color index color71 color234 "~N~v~(~N)" # collapsed thread with unread parent
+
+# statusbg used to indicated flagged when foreground color shows other status
+# for collapsed thread
+color index color132 color246 "~v~(~F)!~N" # collapsed thread with flagged, no unread
+color index color137 color246 "~v~(~F~N)" # collapsed thread with some unread & flagged
+color index color71 color246 "~N~v~(~F~N)" # collapsed thread with unread parent & flagged
+color index color71 color246 "~N~v~(~F)" # collapsed thread with unread parent, no unread inside, but some flagged
+color index color72 color246 "~v~(~p)" # collapsed thread with unread parent, no unread inside, some to me directly
+color index color137 color132 "~v~(~D)" # thread with deleted (doesn't differentiate between all or partial)
+color index color137 color234 "~(~N)" # messages in threads with some unread
+color index color71 color234 "~S" # superseded messages
+color index color132 color234 "~T" # tagged messages
+color index color181 color132 "~=" # duplicated messages
+
+# Message headers
+color header color151 color234 "^"
+color hdrdefault color151 color234
+color header color152 color234 "^(From)"
+color header color67 color234 "^(Subject)"
+
+# Message body
+color quoted color67 color234
+color quoted1 color72 color234
+color quoted2 color137 color234
+color quoted3 color132 color234
+color quoted4 color181 color234
+
+color signature color151 color234
+color bold color246 color234
+color underline color246 color234
+color normal color187 color234
+
+color body color151 color234 "[;:][-o][)/(|]" # emoticons
+color body color151 color234 "[;:][)(|]" # emoticons
+color body color151 color234 "[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|\
+ |FWIW|vbg|GD&R|HTH|HTHBE|IMHO|IMNSHO|\
+ |IRL|RTFM|ROTFL|ROFL|YMMV)[*]?"
+color body color151 color234 "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body color151 color234 "[ ]?[*][^*]*[*][ ]" # more emoticon?
+
+## pgp
+color body color132 color234 "(BAD signature)"
+color body color72 color234 "(Good signature)"
+color body color252 color234 "^gpg: Good signature .*"
+color body color152 color234 "^gpg: "
+color body color152 color132 "^gpg: BAD signature from.*"
+mono body bold "^gpg: Good signature"
+mono body bold "^gpg: BAD signature from.*"
+
+# yes, an insane URL regex
+color body color132 color234 "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+
+# and a heavy handed email regex
+color body color132 color234 "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+
+# Various smilies and the like
+color body default color234 "<[Gg]>" # <g>
+color body default color234 "<[Bb][Gg]>" # <bg>
+color body color137 color234 " [;:]-*[})>{(<|]" # :-) etc...
+
+# *bold*
+color body color67 color234 "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+mono body bold "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+
+# _underline_
+color body color67 color234 "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+mono body underline "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+
+# /italic/ (Sometimes gets directory names)
+color body color67 color234 "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+mono body underline "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+
+# Border lines.
+color body color67 color234 "( *[-+=#*~_]){6,}"
+
+# vim: filetype=muttrc
