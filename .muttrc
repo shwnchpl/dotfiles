@@ -55,9 +55,7 @@ done`
 # [SEC_0x03] - SMTP
 ####################################################
 
-set smtp_url = 'smtps://shawn@chapla.email@smtp.fastmail.com'
-set smtp_pass = '**********************************'
-set ssl_force_tls = yes
+set sendmail        = '/usr/bin/msmtp -a shawn@chapla.email'
 
 ####################################################
 # [SEC_0x04] - Composition
@@ -96,6 +94,7 @@ bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
+bind pager,index M compose-to-sender
 
 bind index,pager \Cp sidebar-prev
 bind index,pager \Cn sidebar-next
