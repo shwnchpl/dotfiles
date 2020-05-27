@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Shawn M. Chapla
+	email = shwnchpl@gmail.com
+[github]
+	user = shwnchpl
+[core]
+	excludesfile = /home/moth/.gitignore_global
+[sendemail]
+	smtpserver = /usr/bin/msmtp
+	smtpServerOption = -ashawn@chapla.email
+	from = Shawn M. Chapla <shawn@chapla.email>
