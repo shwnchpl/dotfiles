@@ -58,7 +58,7 @@ fi
 
 # Update screen window title with the program that's currently running.
 case "$TERM" in
-  screen)
+  screen*)
     PS1='\[\033k\033\\\]'
     ;;
   *)

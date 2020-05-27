@@ -19,6 +19,9 @@ deflogin off
 # Set shell title so that screen knows when we're at a prompt.
 shelltitle "$ |bash"
 
+# Use 256 colors
+term screen-256color
+
 # Key bindings.
 
 # Change title with ctrl-a - ,
