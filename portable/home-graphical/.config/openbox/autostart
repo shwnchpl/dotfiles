@@ -4,5 +4,8 @@ feh --bg-fil /home/moth/.config/wallpaper/rural_nightfall_japan.jpg &
 # Start polybar
 polybar base &
 
+# Start desktop notification daemon.
+/usr/lib/notification-daemon/notification-daemon &
+
 # Configure touchpad behavior
 synclient PalmDetect=1 VertScrollDelta=-247 HorizScrollDelta=-247 MaxTapTime=0 &

@@ -1,0 +1,4 @@
+[Unit]
+Description=Mailbox synchronization target
+Wants=mbsync.service
+After=mbsync.service

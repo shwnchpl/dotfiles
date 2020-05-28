@@ -40,6 +40,7 @@ entirely appropriate for yours.
 * feh
 * firefox
 * i3lock
+* libnotify-bin
 * openbox
 * polybar
 * rofi

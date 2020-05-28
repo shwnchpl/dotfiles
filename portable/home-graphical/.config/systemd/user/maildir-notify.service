@@ -1,0 +1,11 @@
+[Unit]
+Description=New mail notification service
+After=mbsync.service
+Requires=mbsync.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash %h/.config/systemd/scripts/maildir-notify.sh
+
+[Install]
+WantedBy=mbsync.service
