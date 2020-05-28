@@ -9,8 +9,8 @@
 
 # [SEC_0x00] - Table of Contents
 # [SEC_0x01] - Meta
-# [SEC_0x02] - Maildir
-# [SEC_0x03] - SMTP
+# [SEC_0x02] - Accounts
+# [SEC_0x03] - Default Account
 # [SEC_0x04] - Composition
 # [SEC_0x05] - Index
 # [SEC_0x06] - Key Bindings
@@ -23,39 +23,22 @@
 
 source ~/.mutt/themes/lumifoo.muttrc
 
-set header_cache= "~/.cache/mutt"
+set header_cache= '~/.cache/mutt'
 
 ####################################################
-# [SEC_0x02] - Maildir
+# [SEC_0x02] - Accounts
 ####################################################
 
-set mbox_type   = Maildir
-set folder      = "~/mail/shawn@chapla.email/"
-set spoolfile   = "=INBOX"
-set record      = "=Sent"
-set mbox        = "=Archive"
-set postponed   = "=Drafts"
-set trash       = "=Trash"
-
-# Explicitly list these folders in this order for sidebar
-# purposes.
-mailboxes =INBOX =Sent =Archive =food@chapla.email
-
-# List the rest of the folders alphabetically, as they appear.
-mailboxes `\
-for file in ~/mail/shawn@chapla.email/*; do \
-  box=$(basename "$file"); \
-  if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
-      -a ! "$box" = '.subscriptions' ]; then \
-    echo -n "=$box "; \
-  fi; \
-done`
+macro index,pager <F2> \
+    '<sync-mailbox><enter-command>source ~/.mutt/personal.muttrc<enter><change-folder>!<enter>;<check-stats>'
+macro index,pager <F3> \
+    '<sync-mailbox><enter-command>source ~/.mutt/work.muttrc<enter><change-folder>!<enter>;<check-stats>'
 
 ####################################################
-# [SEC_0x03] - SMTP
+# [SEC_0x03] - Default Account
 ####################################################
 
-set sendmail        = '/usr/bin/msmtp -a shawn@chapla.email'
+source ~/.mutt/personal.muttrc
 
 ####################################################
 # [SEC_0x04] - Composition
@@ -66,8 +49,7 @@ set edit_headers    = yes
 set charset         = UTF-8
 
 unset use_domain
-set realname        = "Shawn M. Chapla"
-set from            = "shawn@chapla.email"
+set realname        = 'Shawn M. Chapla'
 set use_from        = yes
 
 ####################################################
@@ -102,7 +84,6 @@ bind index,pager \Co sidebar-open
 
 macro index A '<save-message>=Archive/<enter>'
 macro index S '<check-stats>'
-macro index Z '<shell-escape>mbsync -a &<enter><check-stats>'
 
 ####################################################
 # [SEC_0x07] - Sidebar
@@ -114,7 +95,7 @@ set sidebar_folder_indent
 set sidebar_width = 25
 set sidebar_divider_char = ' | '
 set sidebar_indent_string = '  ''
-set sidebar_format = "%B %* %?N?%N/?%S"
+set sidebar_format = '%B %* %?N?%N/?%S'
 set sidebar_short_path = no
 set sidebar_folder_indent = no
 
