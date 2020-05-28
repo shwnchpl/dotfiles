@@ -1,6 +1,9 @@
 # Set line editing mode to vi-mode.
 c.TerminalInteractiveShell.editing_mode = 'vi'
 
+# Set default color scheme to native.
+c.TerminalInteractiveShell.highlighting_style = 'native'
+
 # Load and enable the autoreload extension.
 c.InteractiveShellApp.extensions = ['autoreload']
 c.InteractiveShellApp.exec_lines = [

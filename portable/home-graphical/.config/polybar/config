@@ -38,33 +38,56 @@ batfg=${self.foreground}
 malfg=${self.foreground}
 
 ;--------------------------------------------
-; bars                                      ; 
+; bars                                      ;
 ;--------------------------------------------
 
 [bar/base]
 monitor=${env:MONITOR:eDP-1}
 dpi=192
 width=100%
-height=20 
-offset-x=0 
+height=20
+offset-x=0
 offset-y=0
-foreground=${colors.foreground} 
+foreground=${colors.foreground}
 background=${colors.background}
 border-top-size=7
 border-top-color= ${colors.background}
 border-bottom-size=7
 border-bottom-color= ${colors.background}
-spacing=0 
-padding-left=1 
-padding-right=0 
-module-margin-left=0 
-module-margin-right=0  
+spacing=0
+padding-left=1
+padding-right=0
+module-margin-left=0
+module-margin-right=0 
 font-0=Siji:size=14;2
 font-1=Monospace:size=8;3
 modules-left=openbox padding xwindow padding
-modules-center= 
+modules-center=
 modules-right=padding network padding volume padding battery padding date padding
 
+[bar/aux]
+monitor=${env:MONITOR:HDMI-2}
+dpi=192
+width=100%
+height=20
+offset-x=0
+offset-y=0
+foreground=${colors.foreground}
+background=${colors.background}
+border-top-size=7
+border-top-color= ${colors.background}
+border-bottom-size=7
+border-bottom-color= ${colors.background}
+spacing=0
+padding-left=1
+padding-right=0
+module-margin-left=0
+module-margin-right=0
+font-0=Siji:size=14;2
+font-1=Monospace:size=8;3
+modules-left=openbox padding xwindow padding
+modules-center=
+modules-right=padding network padding volume padding battery padding date padding
 ;--------------------------------------------
 ; modules                                   ;
 ;--------------------------------------------
@@ -73,22 +96,22 @@ modules-right=padding network padding volume padding battery padding date paddin
 y-offset=10
 type=internal/xwindow
 label=%title:0:120:...%
-label-padding=1 
-label-foreground=${colors.winfg} 
+label-padding=1
+label-foreground=${colors.winfg}
 label-background=${colors.winbg}
 
 [module/date]
 type=internal/date
 interval=1.0
-date=%a %b %d, 
+date=%a %b %d,
 time=%H:%M
 time-alt=%H:%M:%S
 label=%date% %time%
 format=<label>
-format-padding=0 
+format-padding=0
 label-background=${colors.foreground}
 label-foreground=${colors.black}
-label-padding= 1 
+label-padding= 1
 
 [module/battery]
 type=internal/battery
@@ -130,17 +153,17 @@ label-volume-background=${colors.volbg}
 label-volume-foreground=${colors.volfg}
 label-volume-padding=1
 label-muted= 0
-label-muted-foreground=${colors.volfg} 
+label-muted-foreground=${colors.volfg}
 label-muted-background=${colors.volbg}
 label-muted-padding=1
-format-volume-padding=0 
-format-muted-padding=0 
-ramp-headphones-0= 
+format-volume-padding=0
+format-muted-padding=0
+ramp-headphones-0=
 
 [module/cpu]
 type=internal/cpu
 interval=0.5
-format=<label> 
+format=<label>
 label= %percentage%%
 label-background=${colors.cpubg}
 label-foreground=${colors.cpufg}
@@ -148,7 +171,7 @@ label-padding=1
 
 [module/network]
 type=internal/network
-interface=wlp3s0 
+interface=wlp3s0
 interval=3.0
 format-connected=<label-connected>
 format-connected-underline=#9f78e1
@@ -167,7 +190,7 @@ ramp-signal-foreground=${colors.netfg}
 
 [module/padding]
 type=custom/text
-content=| 
+content=|
 content-foreground=${colors.background}
 content-background=${colors.background}
 
@@ -178,8 +201,8 @@ enable-scroll=false
 format=<label-state>
 label-monitor=%name%
 label-active =%icon%%name%
-label-active-foreground =${colors.obfg} 
-label-active-background =${colors.obbg} 
+label-active-foreground =${colors.obfg}
+label-active-background =${colors.obbg}
 label-active-underline=#fba922
 label-active-padding=1
 label-occupied =%name%

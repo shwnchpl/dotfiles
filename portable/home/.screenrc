@@ -38,7 +38,7 @@ hardstatus alwayslastline "%{= rw} %-w%{= wr} [% %t] %{-}%+w %= | @%H | %l | %Y-
 # hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= | @%H | %l | %Y-%m-%d %c "
 
 # Several other options include:
-#hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= %-w%{= rk} %{-}%+w @%H %-w%{= rk} %{-}%+w %l %-w%{= rk} %{-}%+w %Y-%m-%d %c "
+# hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= %-w%{= rk} %{-}%+w @%H %-w%{= rk} %{-}%+w %l %-w%{= rk} %{-}%+w %Y-%m-%d %c "
 #hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= %-w%{= rk} %{-}%+w @%H %-w%{= rk} %{-}%+w %l %-w%{= rk} %{-}%+w %Y-%m-%d %c "
 #hardstatus alwayslastline "%{= 2k} %-w%{= ck} [% %t] %{-}%+w %= %{= rw} @%H | %l | %Y-%m-%d %c "
 #hardstatus alwayslastline "%{= 2k} %-w%{= rw} [% %t] %{-}%+w %= %-w%{= rw} @%H %{-} %-w%{= rw} %l %{-}%+w %-w%{= rw} %Y-%m-%d %c %{-} "

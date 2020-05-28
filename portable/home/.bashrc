@@ -166,9 +166,6 @@ export NNN_USE_EDITOR=1
 # oddly in vim.
 export NNN_RESTRICT_NAV_OPEN=1
 
-# Show hidden files in nnn.
-alias nnn="nnn -d"
-
 # Add "quitcd" nnn support.
 export NNN_TMPFILE="/tmp/nnn"
 n()
@@ -180,3 +177,12 @@ n()
                 rm -f $NNN_TMPFILE > /dev/null
         fi
 }
+
+# Shwo hidden files in nnn.
+alias nnn="nnn -d"
+
+# Make it so that go related stuff installs to .go
+export GOPATH="$HOME/.go"
+
+# Add go executable path to path.
+export PATH="$HOME/.go/bin:$PATH"
