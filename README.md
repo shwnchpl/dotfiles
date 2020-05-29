@@ -44,6 +44,7 @@ entirely appropriate for yours.
 * openbox
 * polybar
 * rofi
+* qutebrowser
 * telegram-desktop
 * urxvt (rxvt-unicode-256color)
 * vlc
