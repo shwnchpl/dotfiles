@@ -185,4 +185,4 @@ alias nnn="nnn -d"
 export GOPATH="$HOME/.go"
 
 # Add go executable path to path.
-export PATH="$HOME/.go/bin:$PATH"
+export PATH="$HOME/.go/bin:$HOME/.cargo/bin:$PATH"

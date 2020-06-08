@@ -1,6 +1,6 @@
-#include </home/moth/.config/colors/flatui.h>
-! #include </home/moth/.config/colors/wwpop.h>
-! #include </home/moth/.config/colors/abw.h>
+#include ".config/colors/flatui.h"
+! #include ".config/colors/wwpop.h"
+! #include ".config/colors/abw.h"
 
 !-------------------------------------------------------------------------------
 ! Xft settings
