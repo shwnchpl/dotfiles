@@ -23,7 +23,7 @@
 
 source ~/.mutt/themes/lumifoo.muttrc
 
-set header_cache= '~/.cache/mutt'
+set header_cache= '~/.cache/mutt/'
 
 ####################################################
 # [SEC_0x02] - Accounts
@@ -33,6 +33,10 @@ macro index,pager <F2> \
     '<sync-mailbox><enter-command>source ~/.mutt/personal.muttrc<enter><change-folder>!<enter>;<check-stats>'
 macro index,pager <F3> \
     '<sync-mailbox><enter-command>source ~/.mutt/work.muttrc<enter><change-folder>!<enter>;<check-stats>'
+macro index,pager <F4> \
+    '<sync-mailbox><enter-command>source ~/.mutt/gmail-personal.muttrc<enter><change-folder>!<enter>;<check-stats>'
+macro index,pager <F5> \
+    '<sync-mailbox><enter-command>source ~/.mutt/gmail-junk.muttrc<enter><change-folder>!<enter>;<check-stats>'
 
 ####################################################
 # [SEC_0x03] - Default Account
