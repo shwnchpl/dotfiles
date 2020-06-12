@@ -86,7 +86,6 @@ bind index,pager \Cp sidebar-prev
 bind index,pager \Cn sidebar-next
 bind index,pager \Co sidebar-open
 
-macro index A '<save-message>=Archive/<enter>'
 macro index S '<check-stats>'
 
 ####################################################
