@@ -1,236 +1,215 @@
-;---------------------------------------------
-;         Polybar Configuration              ;
-;               Openbox                      ;
-;           github.com/JLErvin               ;
-;---------------------------------------------
+###################################################
+# File: polybar/config
+# Author: Shawn M. Chapla
+#
+# Based on JLErvin's Polybar Openbox configuration.
+# See github.com/JLErvin.
+###################################################
+
+[sysconf]
+include-file = $HOME/.config/polybar/sysconf.polybar
 
 [colors]
-; Define System colors from .Xresources
-background=${xrdb:background:#ffffff}
-black=${xrdb:color0:#ffffff}
-red=${xrdb:color1:#ffffff}
-grn=${xrdb:color2:#ffffff}
-ylw=${xrdb:color3:#ffffff}
-blu=${xrdb:color4:#ffffff}
-mag=${xrdb:color5:#ffffff}
-cyn=${xrdb:color6:#ffffff}
-wht=${xrdb:color7:#ffffff}
-foreground=${xrdb:foreground:#ffffff}
+include-file = $HOME/.config/polybar/xrdb-colors.polybar
 
-; Define colors for each module
-; Easier to change here for each module
+# Define colors for each module.
 obbg=${self.red}
 obibg=${self.foreground}
-cpubg=${self.red}
-winbg=${self.ylw}
-netbg=${self.ylw}
-volbg=${self.grn}
-batbg=${self.mag}
-malbg=${self.red}
-
 obfg=${self.foreground}
 obifg=${self.background}
-cpufg=${self.foreground}
-winfg=${self.background}
-netfg=${self.background}
-volfg=${self.foreground}
-batfg=${self.foreground}
-malfg=${self.foreground}
 
-;--------------------------------------------
-; bars                                      ;
-;--------------------------------------------
+winbg=${self.ylw}
+winfg=${self.background}
+
+netbg=${self.ylw}
+netfg=${self.background}
+
+volbg=${self.grn}
+volfg=${self.foreground}
+
+batbg=${self.mag}
+batfg=${self.foreground}
+
+vpnbg=${self.red}
+vpnfg=${self.foreground}
+
+###################################################
+# Bar
+###################################################
 
 [bar/base]
-monitor=${env:MONITOR:eDP-1}
-dpi=192
-width=100%
-height=20
-offset-x=0
-offset-y=0
-foreground=${colors.foreground}
-background=${colors.background}
-border-top-size=7
-border-top-color= ${colors.background}
-border-bottom-size=7
-border-bottom-color= ${colors.background}
-spacing=0
-padding-left=1
-padding-right=0
-module-margin-left=0
-module-margin-right=0 
-font-0=Siji:size=14;2
-font-1=Monospace:size=8;3
-modules-left=openbox padding xwindow padding
-modules-center=
-modules-right=padding network padding volume padding battery padding date padding
+monitor             = ${sysconf.monitor}
+dpi                 = ${sysconf.monitor-dpi}
+width               = 100%
+height              = 20
+offset-x            = 0
+offset-y            = 0
+foreground          = ${colors.foreground}
+background          = ${colors.background}
+border-top-size     = 7
+border-top-color    = ${colors.background}
+border-bottom-size  = 7
+border-bottom-color = ${colors.background}
+spacing             = 0
+padding-left        = 1
+padding-right       = 0
+padding-top         = 3
+module-margin-left  = 0
+module-margin-right = 0
+font-0              = ${sysconf.font-0}
+font-1              = ${sysconf.font-1}
+modules-left        = ${sysconf.layout-left}
+modules-center      = ${sysconf.layout-center}
+modules-right       = ${sysconf.layout-right}
 
-[bar/aux]
-monitor=${env:MONITOR:HDMI-2}
-dpi=192
-width=100%
-height=20
-offset-x=0
-offset-y=0
-foreground=${colors.foreground}
-background=${colors.background}
-border-top-size=7
-border-top-color= ${colors.background}
-border-bottom-size=7
-border-bottom-color= ${colors.background}
-spacing=0
-padding-left=1
-padding-right=0
-module-margin-left=0
-module-margin-right=0
-font-0=Siji:size=14;2
-font-1=Monospace:size=8;3
-modules-left=openbox padding xwindow padding
-modules-center=
-modules-right=padding network padding volume padding battery padding date padding
-;--------------------------------------------
-; modules                                   ;
-;--------------------------------------------
+###################################################
+# Modules
+###################################################
 
 [module/xwindow]
-y-offset=10
-type=internal/xwindow
-label=%title:0:120:...%
-label-padding=1
-label-foreground=${colors.winfg}
-label-background=${colors.winbg}
+y-offset            = 10
+type                = internal/xwindow
+label               = %title:0:120:...%
+label-padding       = 1
+label-foreground    = ${colors.winfg}
+label-background    = ${colors.winbg}
 
 [module/date]
-type=internal/date
-interval=1.0
-date=%a %b %d,
-time=%H:%M
-time-alt=%H:%M:%S
-label=%date% %time%
-format=<label>
-format-padding=0
-label-background=${colors.foreground}
-label-foreground=${colors.black}
-label-padding= 1
+type                = internal/date
+interval            = 1.0
+date                = %a %b %d,
+time                = %H:%M
+time-alt            = %H:%M:%S
+label               = %date% %time%
+format              = <label>
+format-padding      = 0
+label-background    = ${colors.foreground}
+label-foreground    = ${colors.black}
+label-padding       = 1
 
 [module/battery]
-type=internal/battery
-full-at=99
-battery=BAT0
-adapter=AC0
-poll-interval=5
-format-charging =<label-charging>
-format-discharging =<label-discharging>
-format-full =<label-full>
-label-charging= %percentage%
-label-charging-padding=1
-label-charging-background=${colors.batbg}
-label-charging-foreground=${colors.batfg}
-label-discharging= %percentage%
-label-discharging-background=${colors.batbg}
-label-discharging-foreground=${colors.batfg}
-label-discharging-padding=1
-label-full= %percentage%
-label-full-foreground=${colors.black}
-animation-charging-background=${colors.batbg}
-animation-charging-foreground=${colors.batfg}
-animation-charging-padding=1
-ramp-capacity-padding=1
-ramp-capacity-background=${colors.batbg}
-ramp-capacity-foreground=${colors.batfg}
-animation-charging-framerate=750
+type                            = internal/battery
+full-at                         = 99
+battery                         = ${sysconf.battery-id}
+adapter                         = ${sysconf.adapter-id}
+poll-interval                   = 5
+format-charging                 = <label-charging>
+format-discharging              = <label-discharging>
+format-full                     = <label-full>
+label-charging                  =  %percentage%
+label-charging-padding          = 1
+label-charging-background       = ${colors.batbg}
+label-charging-foreground       = ${colors.batfg}
+label-discharging               =  %percentage%
+label-discharging-background    = ${colors.batbg}
+label-discharging-foreground    = ${colors.batfg}
+label-discharging-padding       = 1
+label-full                      =  %percentage%
+label-full-foreground           = ${colors.black}
+animation-charging-background   = ${colors.batbg}
+animation-charging-foreground   = ${colors.batfg}
+animation-charging-padding      = 1
+ramp-capacity-padding           = 1
+ramp-capacity-background        = ${colors.batbg}
+ramp-capacity-foreground        = ${colors.batfg}
+animation-charging-framerate    = 750
 
 [module/volume]
-type=internal/alsa
-; master-soundcard=hw:1 ; Needed if no puleaudio
-format-volume =<label-volume>
-format-muted =<label-muted>
-ramp-volume-background=${colors.volbg}
-ramp-volume-foreground=${colors.volfg}
-ramp-volume-padding=1
-label-volume= %percentage%
-label-volume-background=${colors.volbg}
-label-volume-foreground=${colors.volfg}
-label-volume-padding=1
-label-muted= 0
-label-muted-foreground=${colors.volfg}
-label-muted-background=${colors.volbg}
-label-muted-padding=1
-format-volume-padding=0
-format-muted-padding=0
-ramp-headphones-0=
+type                            = internal/alsa
+format-volume                   = <label-volume>
+format-muted                    = <label-muted>
+ramp-volume-background          = ${colors.volbg}
+ramp-volume-foreground          = ${colors.volfg}
+ramp-volume-padding             = 1
+label-volume                    = VOL: %percentage%
+label-volume-background         = ${colors.volbg}
+label-volume-foreground         = ${colors.volfg}
+label-volume-padding            = 1
+label-muted                     = MUTE
+label-muted-foreground          = ${colors.volfg}
+label-muted-background          = ${colors.volbg}
+label-muted-padding             = 1
+format-volume-padding           = 0
+format-muted-padding            = 0
+ramp-headphones-0               = 
 
-[module/cpu]
-type=internal/cpu
-interval=0.5
-format=<label>
-label= %percentage%%
-label-background=${colors.cpubg}
-label-foreground=${colors.cpufg}
-label-padding=1
+[module/vpn]
+type                = custom/script
+exec                = echo VPN ENABLED
+exec-if             = ifconfig | grep wg0
+interval            = 5
+format-padding      = 1
+format-foreground   = ${colors.vpnfg}
+format-background   = ${colors.vpnbg}
 
 [module/network]
-type=internal/network
-interface=wlp3s0
-interval=3.0
-format-connected=<label-connected>
-format-connected-underline=#9f78e1
-label-connected= %essid%
-label-connected-background=${colors.netbg}
-label-connected-foreground=${colors.netfg}
-label-connected-padding=1
-ramp-signal-background=${colors.netbg}
-ramp-connected-foreground=${colors.netfg}
-ramp-signal-padding=1
-format-disconnected= <label-disconnected>
-label-disconnected-background=${colors.netbg}
-label-disconnected-padding=1
-label-disconnected=DISCONNECTED
-ramp-signal-foreground=${colors.netfg}
+type                            = internal/network
+interface                       = enp5s0
+interval                        = 3.0
+format-connected                = <label-connected>
+format-connected-underline      = #9f78e1
+label-connected                 = %ifname% (%essid%) %local_ip%
+label-connected-background      = ${colors.netbg}
+label-connected-foreground      = ${colors.netfg}
+label-connected-padding         = 1
+ramp-signal-background          = ${colors.netbg}
+ramp-connected-foreground       = ${colors.netfg}
+ramp-signal-padding             = 1
+format-disconnected             = <label-disconnected>
+label-disconnected-background   = ${colors.netbg}
+label-disconnected-foreground   = ${colors.netfg}
+label-disconnected-padding      = 1
+label-disconnected              = %ifname% DOWN
+ramp-signal-foreground          = ${colors.netfg}
+
+[module/wireless]
+type                            = internal/network
+interface                       = wlp6s0
+interval                        = 3.0
+format-connected                = <label-connected>
+format-connected-underline      = #9f78e1
+label-connected                 = %ifname% (%essid%) %local_ip%
+label-connected-background      = ${colors.netbg}
+label-connected-foreground      = ${colors.netfg}
+label-connected-padding         = 1
+ramp-signal-background          = ${colors.netbg}
+ramp-connected-foreground       = ${colors.netfg}
+ramp-signal-padding             = 1
+format-disconnected             = <label-disconnected>
+label-disconnected-background   = ${colors.netbg}
+label-disconnected-foreground   = ${colors.netfg}
+label-disconnected-padding      = 1
+label-disconnected              = %ifname% DOWN
+ramp-signal-foreground          = ${colors.netfg}
 
 [module/padding]
-type=custom/text
-content=|
-content-foreground=${colors.background}
-content-background=${colors.background}
+type                            = custom/text
+content                         = |
+content-foreground              = ${colors.background}
+content-background              = ${colors.background}
 
 [module/openbox]
-type=internal/xworkspaces
-enable-click=true
-enable-scroll=false
-format=<label-state>
-label-monitor=%name%
-label-active =%icon%%name%
-label-active-foreground =${colors.obfg}
-label-active-background =${colors.obbg}
-label-active-underline=#fba922
-label-active-padding=1
-label-occupied =%name%
-label-occupied-background=${colors.obbg}
-label-occupied-padding=1
-label-urgent=%index%
-label-urgent-foreground=#000000
-label-urgent-background=#bd2c40
-label-urgent-underline=#9b0a20
-label-empty =%name%
-label-empty-padding=1
-label-empty-background=${colors.obibg}
-label-empty-foreground=${colors.obifg}
+type                            = internal/xworkspaces
+enable-click                    = true
+enable-scroll                   = false
+format                          = <label-state>
+label-monitor                   = %name%
+label-active                    = %icon%%name%
+label-active-foreground         = ${colors.obfg}
+label-active-background         = ${colors.obbg}
+label-active-underline          = #fba922
+label-active-padding            = 1
+label-occupied                  = %name%
+label-occupied-background       = ${colors.obibg}
+label-occupied-foreground       = ${colors.obifg}
+label-occupied-padding          = 1
+label-urgent                    = %index%
+label-urgent-foreground         = #000000
+label-urgent-background         = #bd2c40
+label-urgent-underline          = #9b0a20
+label-empty                     = %name%
+label-empty-padding             = 1
+label-empty-background          = ${colors.obibg}
+label-empty-foreground          = ${colors.obifg}
 
-; [module/backlight]
-; type = internal/xbacklight
-; output = eDP-1
-; enable-scroll = false
-; format = <label>
-; label = %percentage%%
-; ramp-0 = 🌕
-; ramp-1 = 🌔
-; ramp-2 = 🌓
-; ramp-3 = 🌒
-; ramp-4 = 🌑
-; bar-width = 10
-; bar-indicator = |
-; bar-fill = ─
-; bar-empty = ─
-
-; vim:ft=dosini
+# vim: ft=dosini

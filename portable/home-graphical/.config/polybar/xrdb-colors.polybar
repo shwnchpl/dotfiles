@@ -1,0 +1,23 @@
+###################################################
+# File: polybar/xrdb-colors.polybar
+# Author: Shawn M. Chapla
+#
+# Based on JLErvin's Polybar Openbox configuration.
+# See github.com/JLErvin.
+###################################################
+
+# Define System colors from .Xresources
+
+black       = ${xrdb:color0:#ffffff}
+red         = ${xrdb:color1:#ffffff}
+grn         = ${xrdb:color2:#ffffff}
+ylw         = ${xrdb:color3:#ffffff}
+blu         = ${xrdb:color4:#ffffff}
+mag         = ${xrdb:color5:#ffffff}
+cyn         = ${xrdb:color6:#ffffff}
+wht         = ${xrdb:color7:#ffffff}
+
+background  = ${xrdb:background:#ffffff}
+foreground  = ${xrdb:foreground:#ffffff}
+
+# vim: ft=dosini

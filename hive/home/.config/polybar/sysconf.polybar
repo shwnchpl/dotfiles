@@ -1,0 +1,18 @@
+###################################################
+# File: polybar/sysconf.polybar
+# Author: Shawn M. Chapla
+###################################################
+
+monitor         = ${env:MONITOR:HDMI-0}
+monitor-dpi     = 96
+font-0          = Fixedsys Excelsior 301:size=12;3
+font-1          = Fixedsys Excelsior 301:size=12;3
+
+layout-left     = openbox padding xwindow padding
+layout-center   =
+layout-right    = vpn padding network padding wireless padding volume padding date padding
+
+battery-id      =
+adapter-id      =
+
+# vim: ft=dosini
