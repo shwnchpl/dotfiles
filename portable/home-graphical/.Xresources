@@ -1,12 +1,11 @@
 #include ".config/colors/flatui.h"
-! #include ".config/colors/wwpop.h"
-! #include ".config/colors/abw.h"
+#include ".config/xresources/system-defs.h"
 
 !-------------------------------------------------------------------------------
 ! Xft settings
 !-------------------------------------------------------------------------------
 
-Xft.dpi:                    144
+Xft.dpi:                    SYSTEM_DPI
 Xft.antialias:              false
 Xft.rgba:                   rgb
 Xft.hinting:                true
@@ -24,8 +23,6 @@ URxvt.depth:                32
 URxvt.geometry:             100x30
 URxvt.transparent:          false
 URxvt.fading:               0
-! URxvt.urgentOnBell:         true
-! URxvt.visualBell:           true
 URxvt.loginShell:           true
 URxvt.saveLines:            250
 URxvt.internalBorder:       3
@@ -33,12 +30,8 @@ URxvt.lineSpace:            1
 
 ! Fonts
 URxvt.allow_bold:           false
-!URxvt*font: xft:Monospace:pixelsize=14
-!URxvt*boldFont: xft:Monospace:pixelsize=14
-
-! Seems to look best at 24px, but that seems a little big.
-URxvt*font: xft:Fixedsys Excelsior 301:pixelsize=24
-URxvt*boldFont: xft:Fixedsys Excelsior 301:pixelsize=24
+URxvt*font:                 SYSTEM_URXVT_FONT
+URxvt*boldFont:             SYSTEM_URXVT_FONT
 
 ! Fix font space
 URxvt*letterSpace: -1
