@@ -1,2 +1,3 @@
 --target=/etc/systemd
 --ignore=.stowrc
+--no-folding
