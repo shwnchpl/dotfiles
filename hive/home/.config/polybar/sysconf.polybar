@@ -7,6 +7,8 @@ monitor         = ${env:MONITOR:HDMI-0}
 monitor-dpi     = 96
 font-0          = Fixedsys Excelsior 301:size=12;3
 font-1          = Fixedsys Excelsior 301:size=12;3
+network-iface   = enp5s0
+wireless-iface  = wlp6s0
 
 layout-left     = openbox padding xwindow padding
 layout-center   =

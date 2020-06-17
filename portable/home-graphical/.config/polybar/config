@@ -144,11 +144,11 @@ format-background   = ${colors.vpnbg}
 
 [module/network]
 type                            = internal/network
-interface                       = enp5s0
+interface                       = ${sysconf.network-iface}
 interval                        = 3.0
 format-connected                = <label-connected>
 format-connected-underline      = #9f78e1
-label-connected                 = %ifname% (%essid%) %local_ip%
+label-connected                 = %ifname% %local_ip%
 label-connected-background      = ${colors.netbg}
 label-connected-foreground      = ${colors.netfg}
 label-connected-padding         = 1
@@ -164,7 +164,7 @@ ramp-signal-foreground          = ${colors.netfg}
 
 [module/wireless]
 type                            = internal/network
-interface                       = wlp6s0
+interface                       = ${sysconf.wireless-iface}
 interval                        = 3.0
 format-connected                = <label-connected>
 format-connected-underline      = #9f78e1
