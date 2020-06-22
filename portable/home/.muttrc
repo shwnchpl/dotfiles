@@ -23,7 +23,9 @@
 
 source ~/.mutt/themes/lumifoo.muttrc
 
-set header_cache= '~/.cache/mutt/'
+set header_cache        = '~/.cache/mutt/'
+set mark_old            = no
+set crypt_verify_sig    = no
 
 ####################################################
 # [SEC_0x02] - Accounts
