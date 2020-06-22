@@ -126,6 +126,18 @@ function! SpellLangToggle()
   endif
 endfunction
 
+function! s:TextModeToggle()
+  if exists('s:CompModeToggle_old_tw')
+    let &textwidth = s:CompModeToggle_old_tw
+    unlet s:CompModeToggle_old_tw
+  else
+    let s:CompModeToggle_old_tw = &textwidth
+    let &textwidth = 72
+  endif
+endfunction
+
+com! TextModeToggle call s:TextModeToggle()
+
 function! s:StripEmailNewlines()
     let l:old_tw = &textwidth
     let &textwidth = 100000
@@ -167,6 +179,12 @@ map <M-9> :b9<CR>
 
 " Toggle spellchecker
 map <F2> :call SpellLangToggle()<CR>
+
+" Toggle word wrapping.
+map <F3> :set wrap!<CR>
+
+" Toggle text-mode width.
+map <F4> :TextModeToggle<CR>
 
 " Regenerate ctags quickly.
 map <C-@> :!ctags -R .<CR>
