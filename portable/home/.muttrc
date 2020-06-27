@@ -90,6 +90,10 @@ bind index,pager \Co sidebar-open
 
 macro index S '<check-stats>'
 
+macro index _ \
+    '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>' \
+    'mark all new as read'
+
 ####################################################
 # [SEC_0x07] - Sidebar
 ####################################################
