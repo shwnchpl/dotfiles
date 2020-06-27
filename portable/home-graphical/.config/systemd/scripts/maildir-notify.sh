@@ -11,7 +11,7 @@ for account in $(ls ~/mail); do
             2> /dev/null                            \
             | wc -l)
     if [ "$newcount" -gt "0" ]; then
-        notify-send "New Mail" "$newcount new messages for $account"
+        notify-send "New Mail" "$newcount new messages for $account" --icon=mail-unread
     fi
 done
 
