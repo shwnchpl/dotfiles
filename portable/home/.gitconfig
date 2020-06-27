@@ -1,0 +1,9 @@
+[github]
+	user = shwnchpl
+
+[user]
+	name = Shawn M. Chapla
+	email = shawn@chapla.email
+
+[includeIf "gitdir:~/work/"]
+	path = ~/work/.gitconfig_include
