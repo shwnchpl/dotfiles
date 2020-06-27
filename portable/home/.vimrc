@@ -186,6 +186,9 @@ map <F3> :set wrap!<CR>
 " Toggle text-mode width.
 map <F4> :TextModeToggle<CR>
 
+" Toggle paste mode.
+map <F5> :set paste!<CR>
+
 " Regenerate ctags quickly.
 map <C-@> :!ctags -R .<CR>
 
