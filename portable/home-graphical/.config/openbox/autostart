@@ -5,7 +5,7 @@ feh --bg-fil ~/.config/wallpaper/rural_nightfall_japan.jpg &
 polybar base &
 
 # Start desktop notification daemon.
-/usr/lib/notification-daemon/notification-daemon &
+~/bin/stable-notification-daemon.sh &
 
 # Configure touchpad behavior
 synclient PalmDetect=1 VertScrollDelta=-247 HorizScrollDelta=-247 MaxTapTime=0 &
