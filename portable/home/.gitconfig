@@ -5,5 +5,8 @@
 	name = Shawn M. Chapla
 	email = shawn@chapla.email
 
+[core]
+	excludesfile = ~/.gitignore_global
+
 [includeIf "gitdir:~/work/"]
 	path = ~/work/.gitconfig_include
