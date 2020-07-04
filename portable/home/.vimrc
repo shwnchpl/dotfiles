@@ -112,7 +112,9 @@ set spell spelllang=en_us
 " Set 256 color mode.
 set t_Co=256
 
-colorscheme kalahari
+if $VIM_NO_PLUGINS != 1
+    colorscheme kalahari
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x06] - Functions and Commands
