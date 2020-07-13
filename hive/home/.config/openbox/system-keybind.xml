@@ -1,0 +1,30 @@
+<system-keybind>
+  <!-- Keybindings for display switching. -->
+  <keybind key="W-F10">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>disp_both</name>
+      </startupnotify>
+      <command>disp.sh both</command>
+    </action>
+  </keybind>
+  <keybind key="W-F11">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>disp_tv</name>
+      </startupnotify>
+      <command>disp.sh tv</command>
+    </action>
+  </keybind>
+  <keybind key="W-F12">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>disp_main</name>
+      </startupnotify>
+      <command>disp.sh main</command>
+    </action>
+  </keybind>
+</system-keybind>
