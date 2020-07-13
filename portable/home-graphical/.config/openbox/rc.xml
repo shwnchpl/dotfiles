@@ -182,6 +182,12 @@
     <xi:include
         href="default-keybind.xml"
         xpointer="xpointer(/default-keybind/keybind)" />
+    <xi:include
+        href="system-keybind.xml"
+        xpointer="xpointer(/system-keybind/keybind)">
+      <!-- Add fallback. This file is optional. -->
+      <xi:fallback />
+    </xi:include>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
