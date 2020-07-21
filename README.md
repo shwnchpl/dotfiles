@@ -25,6 +25,7 @@ entirely appropriate for yours.
 * nmcli
 * nnn
 * pass
+* pdftotext (poppler-utils)
 * python3
 * screen
 * stow

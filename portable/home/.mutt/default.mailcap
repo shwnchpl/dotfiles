@@ -1,0 +1,4 @@
+text/html; w3m -T text/html -dump '%s'; copiousoutput
+application/pdf; pdftotext %s -; copiousoutput
+
+# vim: set ft=mailcap:

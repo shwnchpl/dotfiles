@@ -1,0 +1,4 @@
+text/html; cat %s|pipefox.sh --new-window; test=test -n "$DISPLAY"
+application/pdf; zathura %s; test=test -n "$DISPLAY"
+
+# vim: set ft=mailcap:

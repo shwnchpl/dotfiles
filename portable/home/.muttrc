@@ -26,6 +26,7 @@ source ~/.mutt/themes/lumifoo.muttrc
 set header_cache        = '~/.cache/mutt/'
 set mark_old            = no
 set crypt_verify_sig    = no
+set mailcap_path        = "~/.mutt/default.mailcap:$mailcap_path"
 
 ####################################################
 # [SEC_0x02] - Accounts
@@ -94,6 +95,15 @@ macro index S '<check-stats>'
 macro index _ \
     '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>' \
     'mark all new as read'
+
+# If ~/.mutt/grahical.mailcap does not exist, the behavior of this
+# macro will be identical to vanilla <view-mailcap>.
+macro attach M \
+    '<enter-command>set my_mailcap_path=$mailcap_path<enter>\
+<enter-command>set mailcap_path="~/.mutt/graphical.mailcap:$mailcap_path"<enter>\
+<view-mailcap>\
+<enter-command>set mailcap_path=$my_mailcap_path<enter>' \
+    'open with graphical mailcap'
 
 ####################################################
 # [SEC_0x07] - Sidebar
