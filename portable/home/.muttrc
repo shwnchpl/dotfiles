@@ -86,6 +86,9 @@ bind attach,index g first-entry
 bind attach,index G last-entry
 bind pager,index M compose-to-sender
 
+bind pager,index e group-reply
+bind pager,index E group-chat-reply
+
 bind index,pager \Cp sidebar-prev
 bind index,pager \Cn sidebar-next
 bind index,pager \Co sidebar-open
