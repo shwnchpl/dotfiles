@@ -76,28 +76,26 @@ unset confirmappend
 # [SEC_0x06] - Key Bindings
 ####################################################
 
-bind pager j next-line
-bind pager k previous-line
+bind attach,browser,index g first-entry
+bind attach,browser,index G last-entry
+
 bind attach,index,pager \CD next-page
 bind attach,index,pager \CU previous-page
+
+bind browser l select-entry
+
+bind pager j next-line
+bind pager k previous-line
 bind pager g top
 bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
-bind pager,index M compose-to-sender
 
+bind pager,index M compose-to-sender
 bind pager,index e group-reply
 bind pager,index E group-chat-reply
 
 bind index,pager \Cp sidebar-prev
 bind index,pager \Cn sidebar-next
 bind index,pager \Co sidebar-open
-
-macro index S '<check-stats>'
-
-macro index _ \
-    '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>' \
-    'mark all new as read'
 
 # If ~/.mutt/grahical.mailcap does not exist, the behavior of this
 # macro will be identical to vanilla <view-mailcap>.
@@ -107,6 +105,13 @@ macro attach M \
 <view-mailcap>\
 <enter-command>set mailcap_path=$my_mailcap_path<enter>' \
     'open with graphical mailcap'
+
+macro browser h '<change-dir>..<enter>'
+
+macro index _ \
+    '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>' \
+    'mark all new as read'
+macro index S '<check-stats>'
 
 ####################################################
 # [SEC_0x07] - Sidebar
