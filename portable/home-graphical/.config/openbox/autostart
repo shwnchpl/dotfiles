@@ -9,3 +9,6 @@ polybar base &
 
 # Configure touchpad behavior
 synclient PalmDetect=1 VertScrollDelta=-247 HorizScrollDelta=-247 MaxTapTime=0 &
+
+# Start ibus-daemon
+ibus-daemon -rdx

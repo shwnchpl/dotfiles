@@ -40,6 +40,7 @@ entirely appropriate for yours.
 * anki
 * feh
 * firefox
+* ibus/ibus-anthy (Japanese text input)
 * i3lock
 * libnotify-bin
 * openbox
