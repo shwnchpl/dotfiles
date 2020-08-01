@@ -68,6 +68,11 @@ set complete-=i
 " Make new vertical splits open on the right.
 set spr
 
+" Break on multi-byte characters when wrapping text and do
+" not insert spaces when joining lines that begin/end with
+" mutli-byte characters.
+set formatoptions+=mM
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x04] - Formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""
