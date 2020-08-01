@@ -157,7 +157,7 @@ fi
 export PATH="$HOME/bin:/sbin:$PATH"
 
 # Load SSH configuration.
-. ~/.bash_ssh
+[ -f $HOME/.bash_ssh ] && . $HOME/.bash_ssh
 
 # Use EDITOR in nnn for text files.
 export NNN_USE_EDITOR=1
