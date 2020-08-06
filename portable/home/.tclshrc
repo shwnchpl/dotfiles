@@ -1,0 +1,7 @@
+# For more information, see `man 3tcl tclreadline`
+# or https://wiki.tcl-lang.org/page/tclreadline.
+
+if {$tcl_interactive} {
+    package require tclreadline
+    ::tclreadline::Loop
+}

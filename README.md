@@ -29,6 +29,8 @@ entirely appropriate for yours.
 * python3
 * screen
 * stow
+* tcl
+* tclreadline
 * tree
 * vim
 * vivid
