@@ -236,6 +236,15 @@
     <action name="Execute">
       <startupnotify>
         <enabled>true</enabled>
+        <name>urxvt_small</name>
+      </startupnotify>
+      <command>urxvt -g 40x10</command>
+    </action>
+  </keybind>
+  <keybind key="W-y">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
         <name>rofi_ssh</name>
       </startupnotify>
       <command>rofi -show ssh</command>
