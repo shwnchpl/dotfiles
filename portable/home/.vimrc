@@ -73,6 +73,12 @@ set spr
 " mutli-byte characters.
 set formatoptions+=mM
 
+" Make Netrw behavior reasonable for cases when nnn is not
+" available.
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x04] - Formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -200,7 +206,11 @@ map <F5> :set paste!<CR>
 map <C-@> :!ctags -R .<CR>
 
 " Quick shortcut for opening new files visually.
-map <C-k> :NnnPicker '%:p:h'<CR>
+if $VIM_NO_PLUGINS != 1
+    map <C-k> :NnnPicker '%:p:h'<CR>
+else
+    map <C-k> :edit .<CR>
+endif
 
 " Make selecting an auto-complete suggestion easier.
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
