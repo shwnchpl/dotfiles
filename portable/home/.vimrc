@@ -212,6 +212,14 @@ else
     map <C-k> :edit .<CR>
 endif
 
+" In netrw, make gn simply invoke :Ntree instead of using
+" its own special handling, which is noisy about 'errors'
+" when selecting a file to indicate target directory level.
+augroup netrw_ntree_gn
+    autocmd!
+    autocmd FileType netrw map <buffer>gn :Ntree<CR>
+augroup end
+
 " Make selecting an auto-complete suggestion easier.
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-j>"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-k>"))
