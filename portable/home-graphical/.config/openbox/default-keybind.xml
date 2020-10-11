@@ -262,10 +262,6 @@
   <!-- Restart Polybar -->
   <keybind key="C-A-p">
     <action name="Execute">
-      <startupnotify>
-        <enabled>true</enabled>
-        <name>lock_screen</name>
-      </startupnotify>
       <command>bash -c 'killall polybar; polybar base &amp;'</command>
     </action>
   </keybind>
