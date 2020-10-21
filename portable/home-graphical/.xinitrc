@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WM=${1:-openbox}
+WM=${CUSTOM_X_WM:-openbox}
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -46,6 +46,7 @@ fi
 case $WM in
   openbox     ) exec openbox-session;;
   i3          ) exec i3;;
+  kde         ) exec startplasma-x11;;
 
   # No known session. Try to execute as a command.
   *           ) exec $WM;;
