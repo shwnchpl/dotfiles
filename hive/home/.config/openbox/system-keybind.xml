@@ -36,4 +36,53 @@
       <command>disp.sh main</command>
     </action>
   </keybind>
+  <!-- Keybindings for monitor switching. -->
+  <keybind key="C-S-A-Left">
+    <action name="MoveResizeTo">
+        <monitor>prev</monitor>
+    </action>
+  </keybind>
+  <keybind key="C-S-A-Right">
+    <action name="MoveResizeTo">
+        <monitor>next</monitor>
+    </action>
+  </keybind>
+  <keybind key="C-S-A-Up">
+    <action name="ForEach">
+      <query target="default">
+        <desktop>current</desktop>
+        <monitor>1</monitor>
+      </query>
+      <then>
+        <action name="MoveResizeTo">
+          <monitor>2</monitor>
+        </action>
+      </then>
+    </action>
+  </keybind>
+  <keybind key="C-S-A-Down">
+    <action name="ForEach">
+      <query target="default">
+        <desktop>current</desktop>
+        <monitor>2</monitor>
+      </query>
+      <then>
+        <action name="MoveResizeTo">
+          <monitor>1</monitor>
+        </action>
+      </then>
+    </action>
+  </keybind>
+  <keybind key="C-S-A-slash">
+    <action name="ForEach">
+      <query target="default">
+        <desktop>current</desktop>
+      </query>
+      <then>
+        <action name="MoveResizeTo">
+          <monitor>next</monitor>
+        </action>
+      </then>
+    </action>
+  </keybind>
 </system-keybind>
