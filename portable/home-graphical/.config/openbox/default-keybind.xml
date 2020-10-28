@@ -259,6 +259,9 @@
       <command>i3lock -i ~/.config/i3lock/lock_screen.png</command>
     </action>
   </keybind>
+  <keybind key="C-A-s">
+    <action name="ToggleOmnipresent" />
+  </keybind>
   <!-- Restart Polybar -->
   <keybind key="C-A-p">
     <action name="Execute">
