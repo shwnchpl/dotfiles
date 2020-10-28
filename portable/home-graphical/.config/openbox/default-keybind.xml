@@ -218,9 +218,9 @@
     <action name="Execute">
       <startupnotify>
         <enabled>true</enabled>
-        <name>Konqueror</name>
+        <name>Firefox</name>
       </startupnotify>
-      <command>kfmclient openProfile filemanagement</command>
+      <command>firefox</command>
     </action>
   </keybind>
   <keybind key="W-r">
