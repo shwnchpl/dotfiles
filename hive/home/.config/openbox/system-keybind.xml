@@ -1,5 +1,14 @@
 <system-keybind>
   <!-- Keybindings for display switching. -->
+  <keybind key="W-F9">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>disp_dual</name>
+      </startupnotify>
+      <command>disp.sh dual</command>
+    </action>
+  </keybind>
   <keybind key="W-F10">
     <action name="Execute">
       <startupnotify>
