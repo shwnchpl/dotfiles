@@ -646,6 +646,10 @@
 
   # end of the example
 -->
+    <!-- Don't decorate URxvt terminal windows. -->
+    <application class="URxvt">
+      <decor>no</decor>
+    </application>
   </applications>
 </openbox_config>
 <!-- vim: set ts=2 sts=2 sw=2: -->
