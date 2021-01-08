@@ -74,6 +74,13 @@ set spr
 " mutli-byte characters.
 set formatoptions+=mM
 
+" Absolutely never write to a read-only file. If I really
+" want to write to a file, I can change permissions or
+" change this option at runtime. If I can't do either of
+" those things, then I definitely do not want to write to
+" the file.
+set cpoptions+=W
+
 " Make Netrw behavior reasonable for cases when nnn is not
 " available.
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
