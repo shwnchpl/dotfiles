@@ -5,3 +5,7 @@ set editing-mode vi
 TAB: menu-complete
 set show-all-if-ambiguous on
 set menu-complete-display-prefix on
+
+# Make tab completion suggestions easier to read.
+set colored-completion-prefix On
+set colored-stats On
