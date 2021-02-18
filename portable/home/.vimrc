@@ -168,6 +168,15 @@ endfunction
 
 com! StripEmailNewlines call s:StripEmailNewlines()
 
+" Convenience function/command for appending a new row to my daily
+" personal data tracking CSV file.
+function! s:AppendDPDRow()
+    normal! G
+    put =strftime('%Y-%m-%d,%a,xx:xx,xx:xx,0000,0000,0,0,-1,\"\"')
+endfunction
+
+com! AppendDPDRow call s:AppendDPDRow()
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x07] - Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""
