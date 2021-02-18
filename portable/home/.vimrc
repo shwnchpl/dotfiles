@@ -219,6 +219,9 @@ map <F4> :TextModeToggle<CR>
 " Toggle paste mode.
 map <F5> :set paste!<CR>
 
+" Reload .vimrc.
+map <F6> :source ~/.vimrc<CR>
+
 " Regenerate ctags quickly.
 map <C-@> :!ctags -R .<CR>
 
