@@ -42,6 +42,8 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'dylon/vim-antlr'
     Plugin 'cespare/vim-toml'
     Plugin 'ziglang/zig.vim'
+    Plugin 'junegunn/fzf'
+    Plugin 'junegunn/fzf.vim'
 
     call vundle#end()
     filetype plugin indent on

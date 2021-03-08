@@ -14,6 +14,7 @@ entirely appropriate for yours.
 ### Non-graphical
 
 * ctags
+* fzf
 * gcc/g++ (build-essential)
 * git
 * gnupg
