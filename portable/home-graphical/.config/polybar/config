@@ -115,7 +115,7 @@ ramp-capacity-foreground        = ${colors.batfg}
 animation-charging-framerate    = 750
 
 [module/volume]
-type                            = internal/alsa
+type                            = internal/pulseaudio
 format-volume                   = <label-volume>
 format-muted                    = <label-muted>
 ramp-volume-background          = ${colors.volbg}
