@@ -44,6 +44,7 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'ziglang/zig.vim'
     Plugin 'junegunn/fzf'
     Plugin 'junegunn/fzf.vim'
+    Plugin 'elixir-editors/vim-elixir'
 
     call vundle#end()
     filetype plugin indent on
