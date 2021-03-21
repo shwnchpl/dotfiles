@@ -61,8 +61,8 @@ set backspace=indent,eol,start
 " Upward search support for ctags.
 set tags=./tags,./TAGS,tags;~,TAGS;~
 
-" Show hidden files in nnn.
-let g:nnn#command = 'nnn -d'
+" Show details and hidden files in nnn.
+let g:nnn#command = 'nnn -dH'
 
 " Make auto-complete suggestions not check include files
 " by default as this takes way too long on larger projects.
@@ -229,7 +229,7 @@ map <C-@> :!ctags -R .<CR>
 
 " Quick shortcut for opening new files visually.
 if $VIM_NO_PLUGINS != 1
-    map <C-k> :NnnPicker '%:p:h'<CR>
+    map <C-k> :NnnPicker %:p:h<CR>
 else
     map <C-k> :edit .<CR>
 endif
