@@ -50,6 +50,7 @@ entirely appropriate for yours.
 * polybar
 * rofi
 * qutebrowser
+* ssh-askpass
 * telegram-desktop
 * urxvt (rxvt-unicode-256color)
 * vlc
