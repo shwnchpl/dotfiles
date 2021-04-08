@@ -48,6 +48,7 @@ entirely appropriate for yours.
 * libnotify-bin
 * openbox
 * polybar
+* remmina
 * rofi
 * qutebrowser
 * spotifyd
@@ -55,6 +56,7 @@ entirely appropriate for yours.
 * ssh-askpass
 * telegram-desktop
 * urxvt (rxvt-unicode-256color)
+* virtualbox
 * vlc
 * xorg
 * zathura
