@@ -50,6 +50,8 @@ entirely appropriate for yours.
 * polybar
 * rofi
 * qutebrowser
+* spotifyd
+* spotify-tui
 * ssh-askpass
 * telegram-desktop
 * urxvt (rxvt-unicode-256color)
