@@ -135,8 +135,6 @@ fi
 
 set -o vi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # Use vim as default editor.
 export EDITOR=vim
 
@@ -158,6 +156,20 @@ export PATH="$HOME/bin:/sbin:$PATH"
 
 # Load SSH configuration.
 [ -f $HOME/.bash_ssh ] && . $HOME/.bash_ssh
+
+if [ -f ~/.fzf.bash ]; then
+    # fzf Bash extensions have been installed.
+    source ~/.fzf.bash
+elif [ -f $(which fzf) ]; then
+    # fzf Bash extensions haven't been installed, but we do
+    # have fzf, so we may have extensions.
+    if [ -d "/usr/share/doc/fzf/examples" ]; then
+        # Debian puts them here, for example.
+        [[ $- == *i* ]] && \
+            source "/usr/share/doc/fzf/examples/completion.bash" 2> /dev/null
+        source "/usr/share/doc/fzf/examples/key-bindings.bash" 2> /dev/null
+    fi
+fi
 
 # Use EDITOR in nnn for text files.
 export NNN_USE_EDITOR=1
