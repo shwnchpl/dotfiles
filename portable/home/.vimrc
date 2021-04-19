@@ -135,7 +135,7 @@ set spell spelllang=en_us
 set t_Co=256
 
 if $VIM_NO_PLUGINS != 1
-    colorscheme welpe
+    colorscheme Atelier_EstuaryDark
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
