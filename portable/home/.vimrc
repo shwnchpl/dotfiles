@@ -215,10 +215,10 @@ map <M-9> :b9<CR>
 map <F2> :call SpellLangToggle()<CR>
 
 " Toggle word wrapping.
-map <F3> :set wrap!<CR>
+map <F3> :TextModeToggle<CR>
 
 " Toggle text-mode width.
-map <F4> :TextModeToggle<CR>
+map <F4> :set wrap!<CR>
 
 " Toggle paste mode.
 map <F5> :set paste!<CR>
