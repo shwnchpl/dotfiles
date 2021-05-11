@@ -113,7 +113,7 @@ if $VIM_FMT_OVERRIDE == "lk-src"
     set colorcolumn=81
     highlight ColorColum ctermbg=Black ctermfg=DarkRed
 elseif $VIM_FMT_OVERRIDE == "email"
-  set textwidth=72
+    set textwidth=72
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,6 +123,7 @@ endif
 set number
 set hlsearch
 set title
+set nowrap
 syntax enable
 
 " Make all tabs and trailing whitespace visible.
