@@ -159,7 +159,12 @@
       <x>8%</x><y>8%</y><height>84%</height><width>84%</width>
     </action>
   </keybind>
-  <keybind key="W-m">
+  <keybind key="W-p"> <!-- Centered, portrait orientation -->
+    <action name="Unmaximize"/>
+    <action name="MoveResizeTo">
+      <x>225/1000</x><y>8%</y><height>84%</height><width>55%</width>
+    </action>
+  </keybind>  <keybind key="W-m">
     <action name="ToggleMaximize"/>
   </keybind>
   <!-- Keybindings for window switching -->
