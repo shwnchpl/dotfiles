@@ -1,17 +1,8 @@
-# Apply wallpaper
-feh --bg-fil ~/.config/wallpaper/pixel_tokyo.png &
-
 # Start polybar
 polybar base &
 
-# Start desktop notification daemon.
-~/bin/stable-notification-daemon.sh &
-
 # Configure touchpad behavior
 synclient PalmDetect=1 VertScrollDelta=-247 HorizScrollDelta=-247 MaxTapTime=0 &
-
-# Start ibus-daemon
-ibus-daemon -rdx
 
 # If using 8 virtual desktops, arrange into two rows.
 xprop -root -f _NET_DESKTOP_LAYOUT 32cccc -set _NET_DESKTOP_LAYOUT 0,4,2,0

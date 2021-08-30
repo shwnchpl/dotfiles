@@ -1,6 +1,6 @@
 #!/bin/sh
 
-WM=${CUSTOM_X_WM:-openbox}
+WM=${CUSTOM_X_WM:-dwm}
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -28,8 +28,6 @@ if [ -f ~/.xprofile ]; then
     . ~/.xprofile
 fi
 
-# start some nice programs
-
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
@@ -37,16 +35,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-#twm &
-#xclock -geometry 50x50-1+1 &
-#xterm -geometry 80x50+494+51 &
-#xterm -geometry 80x20+494-0 &
-#exec xterm -geometry 80x66+0+0 -name login
+# Autostart some nice programs.
+feh --bg-fil ~/.config/wallpaper/pixel_tokyo.png &
+~/bin/stable-notification-daemon.sh &
+ibus-daemon -rdx
 
+# Start window manager.
 case $WM in
   openbox     ) exec openbox-session;;
   i3          ) exec i3;;
   kde         ) exec startplasma-x11;;
+  dwm         ) while dwm; do false; done;;
 
   # No known session. Try to execute as a command.
   *           ) exec $WM;;

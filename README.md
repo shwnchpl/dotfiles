@@ -14,11 +14,13 @@ entirely appropriate for yours.
 ### Non-graphical
 
 * ctags
+* dmenu
+* dwm
 * fzf
 * gcc/g++ (build-essential)
 * git
 * gnupg
-* ibsync
+* isync/ibsync
 * make
 * msmtp
 * mutt
@@ -26,6 +28,7 @@ entirely appropriate for yours.
 * nmcli
 * nnn
 * pass
+* pikaur
 * pdftotext (poppler-utils)
 * python3
 * screen

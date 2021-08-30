@@ -168,6 +168,11 @@ elif [ -f $(which fzf) ]; then
         [[ $- == *i* ]] && \
             source "/usr/share/doc/fzf/examples/completion.bash" 2> /dev/null
         source "/usr/share/doc/fzf/examples/key-bindings.bash" 2> /dev/null
+    elif [ -d "/usr/share/fzf" ]; then
+        # Arch puts them here.
+        [[ $- == *i* ]] && \
+            source "/usr/share/fzf/completion.bash" 2> /dev/null
+        source "/usr/share/fzf/key-bindings.bash" 2> /dev/null
     fi
 fi
 
