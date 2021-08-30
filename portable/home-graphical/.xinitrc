@@ -45,7 +45,17 @@ case $WM in
   openbox     ) exec openbox-session;;
   i3          ) exec i3;;
   kde         ) exec startplasma-x11;;
-  dwm         ) while dwm; do false; done;;
+  dwm         )
+      # Start additional DWM specific programs.
+      slstatus &
+
+      # As long as dwm keeps returning success, keep re-running it.
+      # This allows "configuration" to be reloaded be recompiling.
+      # To actually exit, kill xinit.
+      while dwm; do
+          false;
+      done
+      ;;
 
   # No known session. Try to execute as a command.
   *           ) exec $WM;;

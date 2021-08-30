@@ -54,6 +54,7 @@ entirely appropriate for yours.
 * remmina
 * rofi
 * qutebrowser
+* slstatus
 * spotifyd
 * spotify-tui
 * ssh-askpass
