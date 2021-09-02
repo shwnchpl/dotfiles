@@ -1,10 +1,12 @@
 diff --git a/config.h b/config.h
 new file mode 100644
-index 0000000..0fc6a8f
+index 0000000..1b208d2
 --- /dev/null
 +++ b/config.h
-@@ -0,0 +1,139 @@
+@@ -0,0 +1,149 @@
 +/* See LICENSE file for copyright and license details. */
++
++#include <X11/XF86keysym.h>
 +
 +/* appearance */
 +static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -27,13 +29,14 @@ index 0000000..0fc6a8f
 +/* tagging */
 +static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 +
++static const char vbox_vm[] = "VirtualBox Machine";
 +static const Rule rules[] = {
 +	/* xprop(1):
 +	 *	WM_CLASS(STRING) = instance, class
 +	 *	WM_NAME(STRING) = title
 +	 */
 +	/* class      instance    title       tags mask     isfloating   monitor */
-+	{ "firefox",  NULL,       NULL,       0,            0,           -1 },
++	{ vbox_vm,    NULL,       NULL,       1 << 8,       0,           -1 },
 +};
 +
 +/* layout(s) */
@@ -67,17 +70,16 @@ index 0000000..0fc6a8f
 +static const char *termcmd[]  = { "urxvt", NULL };
 +static const char *lockcmd[] = { "bash", "-c", "i3lock -i ~/.config/i3lock/lock_screen.png", NULL };
 +static const char *quitcmd[] = { "killall", "xinit", NULL };
-+
-+/* TODO: Figure out volume key bindings. The following commands work,
-+   but may not be the best way to go about things. It would also be
-+   ideal to have mute status displayed somewhere.
-+
-+     amixer sset Master 10%+
-+     amixer sset Master 10%-
-+     amixer sset Master toggle */
++static const char *volmutecmd[] = { "amixer", "sset", "Master", "toggle", NULL };
++static const char *vollowercmd[] = { "amixer", "sset", "Master", "10%-", NULL };
++static const char *volraisecmd[] = { "amixer", "sset", "Master", "10%+", NULL };
 +
 +/* TODO: Add keybindings to invoke disp.sh for multi-monitor
 +   support. */
++
++#define _k_mute XF86XK_AudioMute
++#define _k_vold XF86XK_AudioLowerVolume
++#define _k_volu XF86XK_AudioRaiseVolume
 +
 +static Key keys[] = {
 +	/* modifier                     key        function        argument */
@@ -122,9 +124,17 @@ index 0000000..0fc6a8f
 +	{ SUPERKEY,                     XK_s,      moveresizep,    {.v = (float []){ 0.52, 0.02, 0.46, 0.46 } } },
 +	{ SUPERKEY,                     XK_z,      moveresizep,    {.v = (float []){ 0.02, 0.52, 0.46, 0.46 } } },
 +	{ SUPERKEY,                     XK_x,      moveresizep,    {.v = (float []){ 0.52, 0.52, 0.46, 0.46 } } },
++	{ SUPERKEY,                     XK_c,      moveresizep,    {.v = (float []){ 0.25, 0.25, 0.50, 0.50 } } },
 +	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} },
 +	{ MODKEY|ShiftMask,             XK_q,      spawn,          { .v = quitcmd } },
++	{ 0,                            _k_mute,   spawn,          { .v = volmutecmd } },
++	{ 0,                            _k_vold,   spawn,          { .v = vollowercmd } },
++	{ 0,                            _k_volu,   spawn,          { .v = volraisecmd } },
 +};
++
++#undef _k_mute
++#undef _k_vold
++#undef _k_volu
 +
 +/* button definitions */
 +/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
