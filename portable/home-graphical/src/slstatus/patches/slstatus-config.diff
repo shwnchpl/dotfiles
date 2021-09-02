@@ -1,9 +1,9 @@
 diff --git a/config.h b/config.h
 new file mode 100644
-index 0000000..ac71394
+index 0000000..0a95332
 --- /dev/null
 +++ b/config.h
-@@ -0,0 +1,83 @@
+@@ -0,0 +1,84 @@
 +/* See LICENSE file for copyright and license details. */
 +
 +/* interval between updates (in ms) */
@@ -76,7 +76,8 @@ index 0000000..ac71394
 +		"echo VPN: DOWN; "
 +	"fi";
 +static const char vol_status[] =
-+	"amixer get Master | tail -n1 | grep -Po '\\[\\K[^%]*' | head -n1";
++	"amixer get Master | tail -n1 | grep -Po '\\[(?=\\d+|off)\\K[^%\\]]*' | "
++		"sed ':a; N; $!ba; s/\\n//g; s/.*off/MM/g;'";
 +#define SBARS   { separator, " | ", NULL }
 +static const struct arg args[] = {
 +	/* function             format          argument */
