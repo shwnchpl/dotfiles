@@ -11,5 +11,8 @@
 [pull]
 	ff = only
 
+[alias]
+	pushall = !git remote | xargs -L1 git push
+
 [includeIf "gitdir:~/work/"]
 	path = ~/work/.gitconfig_include
