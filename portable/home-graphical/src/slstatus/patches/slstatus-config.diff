@@ -1,10 +1,12 @@
 diff --git a/config.h b/config.h
 new file mode 100644
-index 0000000..0a95332
+index 0000000..4109b56
 --- /dev/null
 +++ b/config.h
-@@ -0,0 +1,84 @@
+@@ -0,0 +1,93 @@
 +/* See LICENSE file for copyright and license details. */
++
++#include "config-sys.h"
 +
 +/* interval between updates (in ms) */
 +const unsigned int interval = 1000;
@@ -81,9 +83,16 @@ index 0000000..0a95332
 +#define SBARS   { separator, " | ", NULL }
 +static const struct arg args[] = {
 +	/* function             format          argument */
++#if defined(SLS_HAS_VPN)
 +	{ run_command,          " %s",          vpn_status },       SBARS,
-+	{ ipv4,                 "%s",           "enp6s0" },         SBARS,
++#endif
++#if defined(SLS_NET_ID)
++	{ ipv4,                 "%s",           SLS_NET_ID },       SBARS,
++#endif
 +	{ load_avg,             "%s",           NULL },             SBARS,
++#if defined(SLS_BAT_ID)
++	{ battery_perc,         "BAT: %s",      SLS_BAT_ID },       SBARS,
++#endif
 +	{ run_command,          "VOL: %s",      vol_status },       SBARS,
 +	{ datetime,             "%s ",          "%F %T" },
 +};

@@ -1,0 +1,38 @@
+{
+ "NotebookModel": "Kindred",
+ "Author": "Shawn M. Chapla",
+ "EcPollInterval": 1000,
+ "ReadWriteWords": false,
+ "CriticalTemperature": 80,
+ "CriticalTemperatureOffset": 20,
+ "FanConfigurations": [
+	{
+         "FanDisplayName": "TFN1",
+	 "ReadRegister": 4,
+	 "WriteRegister": 4,
+	 "MinSpeedValue": 0,
+	 "MaxSpeedValue": 90,
+	 "ResetRequired": true,
+	 "FanSpeedResetValue": 255,
+	 "TemperatureThresholds": [
+	  {
+	   "UpThreshold": 55,
+	   "DownThreshold": 0,
+	   "FanSpeed": 0.0
+	  },
+	  {
+	   "UpThreshold": 70,
+	   "DownThreshold": 45,
+	   "FanSpeed": 50.0
+	  },
+	  {
+	   "UpThreshold": 79,
+	   "DownThreshold": 65,
+	   "FanSpeed": 100.0
+	  }
+	 ],
+	 "FanSpeedPercentageOverrides": []
+	}
+ ],
+ "RegisterWriteConfigurations": []
+}

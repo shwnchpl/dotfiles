@@ -14,7 +14,13 @@ if [[ "$agent" == "" || ! -e ~/.ssh/.agent_env ]]; then
     echo 'export SSH_AUTH_SOCK'=$SSH_AUTH_SOCK >> ~/.ssh/.agent_env
     echo 'export SSH_AGENT_PID'=$SSH_AGENT_PID >> ~/.ssh/.agent_env
 
-    ssh-add ~/.ssh/id_rsa
+    # add keys
+    if [[ -f ~/.ssh/id_rsa ]]; then
+        ssh-add ~/.ssh/id_rsa
+    fi
+    if [[ -f ~/.ssh/id_ed25519 ]]; then
+        ssh-add ~/.ssh/id_ed25519
+    fi
 fi
 
 # create our own hardlink to the socket (with random name)
@@ -35,3 +41,5 @@ end_agent()
 }
 trap end_agent EXIT
 set +x
+
+# vim: set ft=bash:
