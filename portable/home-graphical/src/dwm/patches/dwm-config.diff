@@ -154,7 +154,7 @@ index 0000000..1b208d2
 +};
 +
 diff --git a/dwm.c b/dwm.c
-index 5e4d494..3c87536 100644
+index 5e4d494..8965cff 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -184,6 +184,7 @@ static void maprequest(XEvent *e);
@@ -165,7 +165,7 @@ index 5e4d494..3c87536 100644
  static Client *nexttiled(Client *c);
  static void pop(Client *);
  static void propertynotify(XEvent *e);
-@@ -1193,6 +1194,23 @@ movemouse(const Arg *arg)
+@@ -1193,6 +1194,24 @@ movemouse(const Arg *arg)
  	}
  }
  
@@ -177,8 +177,9 @@ index 5e4d494..3c87536 100644
 +
 +	selmon->sel->isfloating = 1;
 +
-+	resize(selmon->sel, selmon->mw * ((float *)arg->v)[0],
-+		selmon->mh * ((float *)arg->v)[1],
++	resize(selmon->sel,
++		selmon->mx + selmon->mw * ((float *)arg->v)[0],
++		selmon->my + selmon->mh * ((float *)arg->v)[1],
 +		selmon->mw * ((float *)arg->v)[2],
 +		selmon->mh * ((float *)arg->v)[3],
 +		True);
