@@ -1,9 +1,9 @@
 diff --git a/config.h b/config.h
 new file mode 100644
-index 0000000..d7cf4df
+index 0000000..a940b1c
 --- /dev/null
 +++ b/config.h
-@@ -0,0 +1,149 @@
+@@ -0,0 +1,157 @@
 +/* See LICENSE file for copyright and license details. */
 +
 +#include <X11/XF86keysym.h>
@@ -73,6 +73,10 @@ index 0000000..d7cf4df
 +static const char *volmutecmd[] = { "amixer", "sset", "Master", "toggle", NULL };
 +static const char *vollowercmd[] = { "amixer", "sset", "Master", "10%-", NULL };
 +static const char *volraisecmd[] = { "amixer", "sset", "Master", "10%+", NULL };
++static const char *dispmaincmd[] = { "disp.sh", "main", NULL };
++static const char *disptvcmd[] = { "disp.sh", "tv", NULL };
++static const char *dispbothcmd[] = { "disp.sh", "both", NULL };
++static const char *dispdualcmd[] = { "disp.sh", "dual", NULL };
 +
 +/* TODO: Add keybindings to invoke disp.sh for multi-monitor
 +   support. */
@@ -127,6 +131,10 @@ index 0000000..d7cf4df
 +	{ SUPERKEY,                     XK_c,      moveresizep,    {.v = (float []){ 0.25, 0.25, 0.50, 0.50 } } },
 +	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} },
 +	{ MODKEY|ShiftMask,             XK_q,      spawn,          { .v = quitcmd } },
++	{ SUPERKEY,                     XK_comma,  spawn,          { .v = disptvcmd } },
++	{ SUPERKEY,                     XK_period, spawn,          { .v = dispmaincmd } },
++	{ SUPERKEY,                     XK_slash,  spawn,          { .v = dispdualcmd } },
++	{ SUPERKEY,                     XK_semicolon,spawn,        { .v = dispbothcmd } },
 +	{ 0,                            _k_mute,   spawn,          { .v = volmutecmd } },
 +	{ 0,                            _k_vold,   spawn,          { .v = vollowercmd } },
 +	{ 0,                            _k_volu,   spawn,          { .v = volraisecmd } },
