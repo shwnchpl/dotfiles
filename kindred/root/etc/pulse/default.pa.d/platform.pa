@@ -1,0 +1,10 @@
+# Manually configure sinks, since they are not autodetected correctly.
+#
+# Getting audio working on Kindred also requires installing
+# alsa-firmware, alsa-ucm-conf, and sof-firmware. The builtin card uses
+# sof-rt5682 drivers and is a Comet Lake PCH-LP cAVS.
+
+load-module module-alsa-sink device=hw:0,0 sink_name=LaptopAuxOut sink_properties="device.description='Comet Lake PCH-LP cAVS (AUX)'"
+load-module module-alsa-sink device=hw:0,2 sink_name=LaptopHDMI sink_properties="device.description='Comet Lake PCH-LP cAVS (HDMI0)'"
+load-module module-alsa-sink device=hw:0,5 sink_name=LaptopSpeakers sink_properties="device.description='Comet Lake PCH-LP cAVS (Speakers)'"
+set-default-sink LaptopSpeakers
