@@ -1,0 +1,3 @@
+keycode 74 = XF86AudioMute
+keycode 75 = XF86AudioLowerVolume
+keycode 76 = XF86AudioRaiseVolume
