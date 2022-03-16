@@ -94,24 +94,34 @@ let g:netrw_liststyle = 3
 " [SEC_0x04] - Formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Defaults
-set expandtab
+" Default formatting profile.
+function! s:DefaultFormatting()
+    set expandtab
+    set tabstop=8
+    set softtabstop=4
+    set shiftwidth=4
+    set textwidth=0
+    set colorcolumn=0
+    let s:FormattingProfile = 'default'
+endfunction
 
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
-set textwidth=0
-
-" Overrides
-if $VIM_FMT_OVERRIDE == "lk-src"
+" Linus source formatting profile.
+function! s:LinuxSrcFormatting()
     set noexpandtab
-
     set tabstop=8
     set softtabstop=8
     set shiftwidth=8
-
     set colorcolumn=81
     highlight ColorColum ctermbg=Black ctermfg=DarkRed
+    let s:FormattingProfile = 'linux-src'
+endfunction
+
+" Default configuration.
+call s:DefaultFormatting()
+
+" Context specific overrides.
+if $VIM_FMT_OVERRIDE == "lk-src"
+    call s:LinuxSrcFormatting()
 elseif $VIM_FMT_OVERRIDE == "email"
     set textwidth=72
 endif
@@ -162,6 +172,16 @@ function! s:TextModeToggle()
 endfunction
 
 com! TextModeToggle call s:TextModeToggle()
+
+function! s:LinuxSrcToggle()
+    if s:FormattingProfile != 'default'
+        call s:DefaultFormatting()
+    else
+        call s:LinuxSrcFormatting()
+    endif
+endfunction
+
+com! LinuxSrcToggle call s:LinuxSrcToggle()
 
 function! s:StripEmailNewlines()
     let l:old_tw = &textwidth
@@ -225,6 +245,9 @@ map <F5> :set paste!<CR>
 
 " Reload .vimrc.
 map <F6> :source ~/.vimrc<CR>
+
+" Toggle Linux source style formatting.
+map <F7> :LinuxSrcToggle<CR>
 
 " Regenerate ctags quickly.
 map <C-@> :!ctags -R .<CR>
