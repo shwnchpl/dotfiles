@@ -162,10 +162,26 @@ index 0000000..a940b1c
 +};
 +
 diff --git a/dwm.c b/dwm.c
-index 5e4d494..8965cff 100644
+index 5e4d494..9caa7c9 100644
 --- a/dwm.c
 +++ b/dwm.c
-@@ -184,6 +184,7 @@ static void maprequest(XEvent *e);
+@@ -89,6 +89,7 @@ struct Client {
+ 	float mina, maxa;
+ 	int x, y, w, h;
+ 	int oldx, oldy, oldw, oldh;
++	float rx, ry, rw, rh;
+ 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
+ 	int bw, oldbw;
+ 	unsigned int tags;
+@@ -142,6 +143,7 @@ typedef struct {
+ } Rule;
+ 
+ /* function declarations */
++static void applyrelativesize(Client *c);
+ static void applyrules(Client *c);
+ static int applysizehints(Client *c, int *x, int *y, int *w, int *h, int interact);
+ static void arrange(Monitor *m);
+@@ -184,6 +186,7 @@ static void maprequest(XEvent *e);
  static void monocle(Monitor *m);
  static void motionnotify(XEvent *e);
  static void movemouse(const Arg *arg);
@@ -173,7 +189,55 @@ index 5e4d494..8965cff 100644
  static Client *nexttiled(Client *c);
  static void pop(Client *);
  static void propertynotify(XEvent *e);
-@@ -1193,6 +1194,24 @@ movemouse(const Arg *arg)
+@@ -207,6 +210,7 @@ static void seturgent(Client *c, int urg);
+ static void showhide(Client *c);
+ static void sigchld(int unused);
+ static void spawn(const Arg *arg);
++static void storerelativesize(Client *c);
+ static void tag(const Arg *arg);
+ static void tagmon(const Arg *arg);
+ static void tile(Monitor *);
+@@ -276,6 +280,16 @@ static Window root, wmcheckwin;
+ struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
+ 
+ /* function implementations */
++void
++applyrelativesize(Client *c)
++{
++	resizeclient(c,
++		c->mon->mx + c->mon->mw * c->rx,
++		c->mon->my + c->mon->mh * c->ry,
++		c->mon->mw * c->rw,
++		c->mon->mh * c->rh);
++}
++
+ void
+ applyrules(Client *c)
+ {
+@@ -565,9 +579,12 @@ configurenotify(XEvent *e)
+ 			drw_resize(drw, sw, bh);
+ 			updatebars();
+ 			for (m = mons; m; m = m->next) {
+-				for (c = m->clients; c; c = c->next)
++				for (c = m->clients; c; c = c->next) {
+ 					if (c->isfullscreen)
+ 						resizeclient(c, m->mx, m->my, m->mw, m->mh);
++					else if (c->isfloating)
++						applyrelativesize(c);
++				}
+ 				XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh);
+ 			}
+ 			focus(NULL);
+@@ -1040,6 +1057,8 @@ manage(Window w, XWindowAttributes *wa)
+ 		applyrules(c);
+ 	}
+ 
++	storerelativesize(c);
++
+ 	if (c->x + WIDTH(c) > c->mon->mx + c->mon->mw)
+ 		c->x = c->mon->mx + c->mon->mw - WIDTH(c);
+ 	if (c->y + HEIGHT(c) > c->mon->my + c->mon->mh)
+@@ -1193,6 +1212,24 @@ movemouse(const Arg *arg)
  	}
  }
  
@@ -197,4 +261,37 @@ index 5e4d494..8965cff 100644
 +
  Client *
  nexttiled(Client *c)
+ {
+@@ -1282,6 +1319,7 @@ resizeclient(Client *c, int x, int y, int w, int h)
+ 	c->oldy = c->y; c->y = wc.y = y;
+ 	c->oldw = c->w; c->w = wc.width = w;
+ 	c->oldh = c->h; c->h = wc.height = h;
++	storerelativesize(c);
+ 	wc.border_width = c->bw;
+ 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
+ 	configure(c);
+@@ -1420,6 +1458,8 @@ sendmon(Client *c, Monitor *m)
+ 	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+ 	attach(c);
+ 	attachstack(c);
++	if (c->isfloating)
++		applyrelativesize(c);
+ 	focus(NULL);
+ 	arrange(NULL);
+ }
+@@ -1653,6 +1693,15 @@ spawn(const Arg *arg)
+ 	}
+ }
+ 
++void
++storerelativesize(Client *c)
++{
++	c->rx = (c->x - c->mon->mx) / (float)c->mon->mw;
++	c->ry = (c->y - c->mon->my) / (float)c->mon->mh;
++	c->rw = c->w / (float)c->mon->mw;
++	c->rh = c->h / (float)c->mon->mh;
++}
++
+ void
+ tag(const Arg *arg)
  {
