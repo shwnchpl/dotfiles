@@ -46,6 +46,10 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'junegunn/fzf.vim'
     Plugin 'elixir-editors/vim-elixir'
 
+    " FIXME: Switch back to upstream (s/shwnchpl/dag) if my pull
+    " request is ever accepted.
+    Plugin 'shwnchpl/vim-fish'
+
     call vundle#end()
     filetype plugin indent on
 endif
