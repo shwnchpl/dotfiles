@@ -64,3 +64,6 @@ bind -c qvsplit 7 eval "split -v" "focus right" "select 7" "focus left"
 bind -c qvsplit 8 eval "split -v" "focus right" "select 8" "focus left"
 bind -c qvsplit 9 eval "split -v" "focus right" "select 9" "focus left"
 bind V command -c qvsplit
+
+# Make ctrl-b the escape combination.
+escape ^Bb
