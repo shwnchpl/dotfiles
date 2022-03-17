@@ -12,6 +12,10 @@ end
 if status is-interactive
     fish_vi_key_bindings
 
+    if type -q fzf
+        fzf_key_bindings
+    end
+
     # Set fish specific environment variables.
     set -gx fish_color_at           green
     set -gx fish_color_cwd          blue
