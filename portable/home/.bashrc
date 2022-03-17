@@ -141,9 +141,6 @@ export EDITOR=vim
 # Utility to open all files containing some pattern in Vim.
 vimallwith() { grep --color=none -rIl $1 . | xargs bash -c '</dev/tty vim "$@"' ignoreme; }
 
-# Default to clipboard selection in xclip
-alias xclip='xclip -selection clipboard'
-
 # If vivid is present, use it to configure LS_COLORS theme.
 # This may need to be commented out if 256 color support is not
 # available.
@@ -194,9 +191,6 @@ n()
                 rm -f $NNN_TMPFILE > /dev/null
         fi
 }
-
-# Shwo hidden files in nnn.
-alias nnn="nnn -d"
 
 # Make it so that go related stuff installs to .go
 export GOPATH="$HOME/.go"
