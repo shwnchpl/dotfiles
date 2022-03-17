@@ -1,6 +1,6 @@
 diff --git a/config.h b/config.h
 new file mode 100644
-index 0000000..a940b1c
+index 0000000..002018b
 --- /dev/null
 +++ b/config.h
 @@ -0,0 +1,157 @@
@@ -67,8 +67,8 @@ index 0000000..a940b1c
 +/* commands */
 +static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 +static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-+static const char *termcmd[]  = { "urxvt", NULL };
-+static const char *lockcmd[] = { "bash", "-c", "i3lock -ti ~/.config/i3lock/lock_screen.png", NULL };
++static const char *termcmd[]  = { "st", NULL };
++static const char *lockcmd[] = { "slock", NULL };
 +static const char *quitcmd[] = { "killall", "xinit", NULL };
 +static const char *volmutecmd[] = { "amixer", "sset", "Master", "toggle", NULL };
 +static const char *vollowercmd[] = { "amixer", "sset", "Master", "10%-", NULL };
