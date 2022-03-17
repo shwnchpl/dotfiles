@@ -14,8 +14,7 @@ entirely appropriate for yours.
 ### Non-graphical
 
 * ctags
-* dmenu
-* dwm
+* fish
 * fzf
 * gcc/g++ (build-essential)
 * git
@@ -44,22 +43,24 @@ entirely appropriate for yours.
 ### Graphical
 
 * anki
+* dwm
+* dmenu
 * feh
 * firefox
 * ibus/ibus-anthy (Japanese text input)
-* i3lock
 * libnotify-bin
 * openbox
 * polybar
 * remmina
 * rofi
 * qutebrowser
+* slock
 * slstatus
 * spotifyd
 * spotify-tui
 * ssh-askpass
+* st
 * telegram-desktop
-* urxvt (rxvt-unicode-256color)
 * virtualbox
 * vlc
 * xorg
