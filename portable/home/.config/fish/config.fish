@@ -17,14 +17,11 @@ if status is-interactive
     end
 
     # Set fish specific environment variables.
-    set -gx fish_color_at           green
+    set -gx fish_greeting
+    set -gx fish_color_at           brgreen
     set -gx fish_color_cwd          blue
-    set -gx fish_color_host         green
+    set -gx fish_color_host         brgreen
     set -gx fish_color_host_remote  yellow
-
-    if test -e ~/.bash_ssh
-        bash ~/.bash_ssh
-    end
 
     function fish_mode_prompt
         # NOOP - Disable vim mode indicator
