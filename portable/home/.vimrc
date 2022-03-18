@@ -45,6 +45,7 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'junegunn/fzf'
     Plugin 'junegunn/fzf.vim'
     Plugin 'elixir-editors/vim-elixir'
+    Plugin 'habamax/vim-godot'
 
     " FIXME: Switch back to upstream (s/shwnchpl/dag) if my pull
     " request is ever accepted.
