@@ -13,11 +13,14 @@ if test -e ~/.bash_aliases
 end
 
 if status is-interactive
+    # Set up custom key bindings.
     fish_vi_key_bindings
 
     if type -q fzf
         fzf_key_bindings
     end
+
+    bind -M insert \cn accept-autosuggestion
 
     # Set fish specific environment variables.
     set -gx fish_greeting
@@ -26,7 +29,8 @@ if status is-interactive
     set -gx fish_color_host         brgreen
     set -gx fish_color_host_remote  yellow
 
+    # Disable vim mode indicator
     function fish_mode_prompt
-        # NOOP - Disable vim mode indicator
+        # no-op
     end
 end
