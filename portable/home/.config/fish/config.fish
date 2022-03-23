@@ -4,6 +4,9 @@ set -gx NNN_USE_EDITOR          1
 set -gx NNN_RESTRICT_NAV_OPEN   1
 set -gx PATH                    "$HOME/bin:/sbin:$PATH"
 
+# Highlight inside manpages.
+set -gx MANPAGER                'less -R --use-color -Dd+r -Du+b'
+
 # Load bash aliases. This file should be compatible.
 if test -e ~/.bash_aliases
     . ~/.bash_aliases
