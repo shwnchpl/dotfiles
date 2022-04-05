@@ -1,0 +1,37 @@
+#!/usr/bin/bash
+
+# xdg-open is a hot mess. Let's try applying a few of our own rules
+# first, then falling back to actual xdg-open as a last resort.
+# Credit to https://www.reddit.com/r/linux/comments/ea0tm/-/c16j9z8/
+# for the basic outline of this file.
+
+file="$1"
+url_regex='(https?|ftp)://.*'
+
+if [[ $file =~ $url_regex ]]; then
+  echo "Opening in browser!"
+  x-www-browser "$file" &>/dev/null & exit 0
+elif [[ ! -f "$file" ]]; then
+  echo "Not a file. Falling back."
+  exec /usr/bin/xdg-open "$file"
+fi
+
+# Read the major and minor mimetype.
+IFS='/' read -r major minor < <(file -ib "$file" 2>/dev/null | cut -d ';' -f 1)
+
+# Check for a specific case
+case "$major/$minor" in
+  text/html) x-www-browser "$file"  &>/dev/null & exit 0 ;;
+  application/pdf) zathura "$file"  &>/dev/null & exit 0 ;;
+esac
+
+# Check for just a major match.
+case "$major" in
+  image) feh "$file"           &>/dev/null & exit 0 ;;
+  text) st -e vim "$file"      &>/dev/null & exit 0 ;;
+  video|audio) vlc "$file"     &>/dev/null & exit 0 ;;
+esac
+
+exec /usr/bin/xdg-open "$file"
+
+# vim: set syntax=bash :
