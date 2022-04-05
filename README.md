@@ -34,7 +34,10 @@ entirely appropriate for yours.
 * stow
 * tcl
 * tclreadline
+* tg
+* tldr
 * tree
+* urlview
 * vim
 * vivid
 * vundle
