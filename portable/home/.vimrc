@@ -16,6 +16,7 @@
 " [SEC_0x05] - Appearance
 " [SEC_0x06] - Functions and Commands
 " [SEC_0x07] - Mappings
+" [SEC_0x08] - External Includes
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x01] - Context
@@ -206,6 +207,16 @@ endfunction
 
 com! AppendDPDRow call s:AppendDPDRow()
 
+function! s:Geist()
+    let bn = bufname('%')
+    let key = systemlist(g:geist_key_cmd)[0]
+    let cmd = 'curl --silent -F "data=@' . bn . '" -H "GeistApiKey: ' . key
+    let cmd = cmd . '" ' . g:geist_server
+    echo systemlist(cmd)[0]
+endfunction
+
+com! Geist call s:Geist()
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x07] - Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -290,3 +301,12 @@ noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')
     \ <CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')
     \ <CR>//e<CR>:nohlsearch<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" [SEC_0x08] - External Includes
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let s:vimrc_secure = $HOME . '/.vimrc.secure'
+if filereadable(s:vimrc_secure)
+    exec 'source ' . s:vimrc_secure
+endif
