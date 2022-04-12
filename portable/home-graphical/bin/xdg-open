@@ -9,10 +9,8 @@ file="$1"
 url_regex='(https?|ftp)://.*'
 
 if [[ $file =~ $url_regex ]]; then
-  echo "Opening in browser!"
   x-www-browser "$file" &>/dev/null & exit 0
 elif [[ ! -f "$file" ]]; then
-  echo "Not a file. Falling back."
   exec /usr/bin/xdg-open "$file"
 fi
 
