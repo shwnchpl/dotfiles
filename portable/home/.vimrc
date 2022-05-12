@@ -151,8 +151,15 @@ set spell spelllang=en_us
 " Set 256 color mode.
 set t_Co=256
 
+" Display cursorline only in the active buffer/window.
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
 if $VIM_NO_PLUGINS != 1
-    colorscheme wellsokai
+    colorscheme wasabi256
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
