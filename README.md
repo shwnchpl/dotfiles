@@ -22,6 +22,7 @@ entirely appropriate for yours.
 * isync/ibsync
 * make
 * msmtp
+* musikcube
 * mutt
 * network-manager
 * nmcli
