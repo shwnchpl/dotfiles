@@ -1,9 +1,9 @@
 diff --git a/config.h b/config.h
 new file mode 100644
-index 0000000..002018b
+index 0000000..8165898
 --- /dev/null
 +++ b/config.h
-@@ -0,0 +1,157 @@
+@@ -0,0 +1,156 @@
 +/* See LICENSE file for copyright and license details. */
 +
 +#include <X11/XF86keysym.h>
@@ -77,9 +77,7 @@ index 0000000..002018b
 +static const char *disptvcmd[] = { "disp.sh", "tv", NULL };
 +static const char *dispbothcmd[] = { "disp.sh", "both", NULL };
 +static const char *dispdualcmd[] = { "disp.sh", "dual", NULL };
-+
-+/* TODO: Add keybindings to invoke disp.sh for multi-monitor
-+   support. */
++static const char *browsercmd[] = { "firefox", NULL };
 +
 +#define _k_mute XF86XK_AudioMute
 +#define _k_vold XF86XK_AudioLowerVolume
@@ -89,6 +87,7 @@ index 0000000..002018b
 +	/* modifier                     key        function        argument */
 +	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 +	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
++	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = browsercmd } },
 +	{ MODKEY,                       XK_b,      togglebar,      {0} },
 +	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 +	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
