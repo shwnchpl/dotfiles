@@ -113,6 +113,19 @@ macro index _ \
     'mark all new as read'
 macro index S '<check-stats>'
 
+macro index,pager \\ \
+    '<enter-command>set my_wait_key=$wait_key<enter>\
+<enter-command>set my_pipe_decode=$pipe_decode<enter>\
+<enter-command>set my_pipe_decode_weed=$pipe_decode_weed<enter>\
+<enter-command>set wait_key=no<enter>\
+<enter-command>set pipe_decode=yes<enter>\
+<enter-command>set pipe_decode_weed=yes<enter>\
+<pipe-message>urlview<enter>\
+<enter-command>set pipe_decode_weed=$my_pipe_decode_weed<enter>\
+<enter-command>set pipe_decode=$my_pipe_decode<enter>\
+<enter-command>set wait_key=$my_wait_key<enter>' \
+    'open links in urlview'
+
 ####################################################
 # [SEC_0x07] - Sidebar
 ####################################################
