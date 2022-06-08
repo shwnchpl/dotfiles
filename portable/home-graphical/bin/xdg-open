@@ -9,7 +9,7 @@ file="$1"
 url_regex='(https?|ftp)://.*'
 
 if [[ $file =~ $url_regex ]]; then
-  x-www-browser "$file" &>/dev/null & exit 0
+  exec x-www-browser "$file" &>/dev/null
 elif [[ ! -f "$file" ]]; then
   exec /usr/bin/xdg-open "$file"
 fi
@@ -19,15 +19,15 @@ IFS='/' read -r major minor < <(file -ib "$file" 2>/dev/null | cut -d ';' -f 1)
 
 # Check for a specific case
 case "$major/$minor" in
-  text/html) x-www-browser "$file"  &>/dev/null & exit 0 ;;
-  application/pdf) zathura "$file"  &>/dev/null & exit 0 ;;
+  text/html)        exec x-www-browser "$file"  &>/dev/null ;;
+  application/pdf)  exec zathura "$file"        &>/dev/null ;;
 esac
 
 # Check for just a major match.
 case "$major" in
-  image) feh "$file"           &>/dev/null & exit 0 ;;
-  text) st -e vim "$file"      &>/dev/null & exit 0 ;;
-  video|audio) vlc "$file"     &>/dev/null & exit 0 ;;
+  image)        exec feh "$file"        &>/dev/null ;;
+  text)         exec st -e vim "$file"  &>/dev/null ;;
+  video|audio)  exec vlc "$file"        &>/dev/null ;;
 esac
 
 exec /usr/bin/xdg-open "$file"
