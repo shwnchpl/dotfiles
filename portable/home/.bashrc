@@ -1,6 +1,6 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+######################################
+# .bashrc - Custom Bash configuration.
+######################################
 
 # If not running interactively, don't do anything
 case $- in
@@ -135,9 +135,6 @@ fi
 
 set -o vi
 
-# Use vim as default editor.
-export EDITOR=vim
-
 # Utility to open all files containing some pattern in Vim.
 vimallwith() { grep --color=none -rIl $1 . | xargs bash -c '</dev/tty vim "$@"' ignoreme; }
 
@@ -147,9 +144,6 @@ vimallwith() { grep --color=none -rIl $1 . | xargs bash -c '</dev/tty vim "$@"' 
 if [ -x "$(command -v vivid)" ]; then
   export LS_COLORS=$(vivid -m 8-bit generate molokai)
 fi
-
-# Add /sbin and ~/bin to path.
-export PATH="$HOME/bin:/sbin:$PATH"
 
 # Load SSH configuration.
 [ -f $HOME/.bash_ssh ] && . $HOME/.bash_ssh
@@ -173,13 +167,6 @@ elif [ -f $(which fzf) ]; then
     fi
 fi
 
-# Use EDITOR in nnn for text files.
-export NNN_USE_EDITOR=1
-
-# Don't open files with -> or 'l' since that behaves
-# oddly in vim.
-export NNN_RESTRICT_NAV_OPEN=1
-
 # Add "quitcd" nnn support.
 export NNN_TMPFILE="/tmp/nnn"
 n()
@@ -192,8 +179,16 @@ n()
         fi
 }
 
-# Make it so that go related stuff installs to .go
-export GOPATH="$HOME/.go"
-
-# Add go executable path to path.
-export PATH="$HOME/.go/bin:$HOME/.cargo/bin:$PATH"
+# Load Bash environment variables.
+if [[ -f ~/.bash_env ]]; then
+    prepend_path()
+    {
+        mkdir -p $1 2> /dev/null || return
+        case ":$PATH:" in
+            *:"$1":*)   ;;
+            *)          PATH=$1${PATH:+:$PATH}
+        esac
+    }
+    . ~/.bash_env
+    unset -f prepend_path
+fi

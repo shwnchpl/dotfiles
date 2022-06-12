@@ -1,13 +1,20 @@
-# Set general environment variables.
-set -gx EDITOR                  vim
-set -gx NNN_USE_EDITOR          1
-set -gx NNN_RESTRICT_NAV_OPEN   1
-set -gx PATH                    "$HOME/bin:/sbin:$PATH"
+##########################################
+# config.fish - Custom Fish configuration.
+##########################################
 
-# Highlight inside manpages.
-set -gx MANPAGER                'less -R --use-color -Dd+r -Du+b'
+# If ~/.bash_env exists, load it. It should be directly compatible with
+# Fish versions 3.1 and newer.
+if test -e ~/.bash_env
+    function prepend_path
+        mkdir -p $argv[1] 2> /dev/null
+        fish_add_path -pP $argv[1]
+    end
+    . ~/.bash_env
+    functions -e prepend_path
+end
 
-# Load bash aliases. This file should be compatible.
+# If ~/.bash_aliases exists, load it. Like ~/.bash_env, it should be
+# directly compatible with Fish versions 3.1 and newer.
 if test -e ~/.bash_aliases
     . ~/.bash_aliases
 end

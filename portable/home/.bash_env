@@ -1,0 +1,30 @@
+###################################################################
+# .bash_env - Environment variables for Bash and compatible shells.
+###################################################################
+
+# XXX: This file expects prepend_path to be defined as a function
+# that prepends its first argument to the current path. prepend_path
+# *may* optionally attempt to create directories being added to the path
+# if they do not already exist. prepend_path *may* optionally not add
+# a directory to the path if it does not exist and cannot be created.
+
+# Set standard shell environment variables.
+export EDITOR="vim"
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
+# Configure go.
+export GOPATH="$HOME/.local/go"
+
+# Configure NNN.
+export NNN_USE_EDITOR=1
+export NNN_RESTRICT_NAV_OPEN=1
+
+# Configure PATH.
+prepend_path "/sbin"
+prepend_path "$HOME/.cargo/bin"
+prepend_path "$HOME/.local/go/bin"
+prepend_path "$HOME/bin"
+
+export PATH
+
+# vim: set filetype=bash:

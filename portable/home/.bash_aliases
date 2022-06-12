@@ -1,3 +1,7 @@
+#########################################################
+# .bash_aliases - Aliases for Bash and compatible shells.
+#########################################################
+
 # Allow for aliases after sudo.
 alias sudo="sudo "
 
