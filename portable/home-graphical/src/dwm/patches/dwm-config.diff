@@ -1,9 +1,9 @@
 diff --git a/config.h b/config.h
 new file mode 100644
-index 0000000..8165898
+index 0000000..7fa7480
 --- /dev/null
 +++ b/config.h
-@@ -0,0 +1,156 @@
+@@ -0,0 +1,163 @@
 +/* See LICENSE file for copyright and license details. */
 +
 +#include <X11/XF86keysym.h>
@@ -78,10 +78,15 @@ index 0000000..8165898
 +static const char *dispbothcmd[] = { "disp.sh", "both", NULL };
 +static const char *dispdualcmd[] = { "disp.sh", "dual", NULL };
 +static const char *browsercmd[] = { "firefox", NULL };
++static const char *brilowercmd[] = { "xbacklight", "-10%", NULL };
++static const char *briraisecmd[] = { "xbacklight", "+10%", NULL };
 +
 +#define _k_mute XF86XK_AudioMute
 +#define _k_vold XF86XK_AudioLowerVolume
 +#define _k_volu XF86XK_AudioRaiseVolume
++
++#define _k_brid XF86XK_MonBrightnessDown
++#define _k_briu XF86XK_MonBrightnessUp
 +
 +static Key keys[] = {
 +	/* modifier                     key        function        argument */
@@ -137,6 +142,8 @@ index 0000000..8165898
 +	{ 0,                            _k_mute,   spawn,          { .v = volmutecmd } },
 +	{ 0,                            _k_vold,   spawn,          { .v = vollowercmd } },
 +	{ 0,                            _k_volu,   spawn,          { .v = volraisecmd } },
++	{ 0,                            _k_brid,   spawn,          { .v = brilowercmd } },
++	{ 0,                            _k_briu,   spawn,          { .v = briraisecmd } },
 +};
 +
 +#undef _k_mute
