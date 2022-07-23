@@ -1,9 +1,9 @@
 diff --git a/config.h b/config.h
 new file mode 100644
-index 0000000..4109b56
+index 0000000..6dc6f8c
 --- /dev/null
 +++ b/config.h
-@@ -0,0 +1,93 @@
+@@ -0,0 +1,98 @@
 +/* See LICENSE file for copyright and license details. */
 +
 +#include "config-sys.h"
@@ -77,6 +77,8 @@ index 0000000..4109b56
 +	"else "
 +		"echo VPN: DOWN; "
 +	"fi";
++static const char bri_status[] =
++	"xbacklight -get | sed 's/\\..*//g'";
 +static const char vol_status[] =
 +	"amixer get Master | tail -n1 | grep -Po '\\[(?=\\d+|off)\\K[^%\\]]*' | "
 +		"sed ':a; N; $!ba; s/\\n//g; s/.*off/MM/g;'";
@@ -92,6 +94,9 @@ index 0000000..4109b56
 +	{ load_avg,             "%s",           NULL },             SBARS,
 +#if defined(SLS_BAT_ID)
 +	{ battery_perc,         "BAT: %s",      SLS_BAT_ID },       SBARS,
++#endif
++#if defined(SLS_HAS_BRI)
++	{ run_command,          "BRI: %s",      bri_status },       SBARS,
 +#endif
 +	{ run_command,          "VOL: %s",      vol_status },       SBARS,
 +	{ datetime,             "%s ",          "%F %T" },
