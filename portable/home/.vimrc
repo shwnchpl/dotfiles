@@ -47,6 +47,7 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'junegunn/fzf.vim'
     Plugin 'elixir-editors/vim-elixir'
     Plugin 'habamax/vim-godot'
+    Plugin 'tpope/vim-abolish'
 
     " FIXME: Switch back to upstream (s/shwnchpl/dag) if my pull
     " request is ever accepted.
@@ -159,7 +160,7 @@ augroup CursorLine
 augroup END
 
 if $VIM_NO_PLUGINS != 1
-    colorscheme wasabi256
+    colorscheme Revolution
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -308,6 +309,9 @@ noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')
     \ <CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')
     \ <CR>//e<CR>:nohlsearch<CR>
+
+" Treat golang files as Linux kernel style source.
+autocmd FileType go call s:LinuxSrcToggle()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x08] - External Includes
