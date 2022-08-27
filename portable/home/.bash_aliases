@@ -16,3 +16,4 @@ alias killwine='pgrep -f C: |xargs kill && pgrep -f wine |xargs kill'
 alias pacman-autoremove="bash -c \"pacman -Qtdq | pacman -Rns -\""
 
 alias gri="grep -rnI . -e"
+alias ip="ip -color=auto"
