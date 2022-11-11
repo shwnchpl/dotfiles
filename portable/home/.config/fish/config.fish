@@ -19,6 +19,13 @@ if test -e ~/.bash_aliases
     . ~/.bash_aliases
 end
 
+# If ~/.config/fish/local-env.fish exists, source it. It is a system
+# specific file that may contain additional configuration or adjustments
+# for compatibility purposes.
+if test -e ~/.config/fish/local-env.fish
+    . ~/.config/fish/local-env.fish
+end
+
 if status is-interactive
     # Set up custom key bindings.
     fish_vi_key_bindings

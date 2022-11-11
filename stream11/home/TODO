@@ -1,0 +1,131 @@
+========
+Overview
+========
+
+- Use minimal void ISO.
+- May be necessary to manually chroot and add apply 10-force-mmc.conf
+  to /etc/dracut.conf.d/10-force-mmc.conf to get boot working.
+- Install portable/home and portable/home-graphical stow packages.
+- Install stream11 stow packages.
+- Install packages listed at the bottom of this file.
+
+
+=======================
+INSTALLATION NOTES/TODO
+=======================
+
+HOUSKEEPING:
+- [DONE] Remove VPN stuff.
+- [DONE] Save changes to configs in dotfiles repo. Including:
+    * /etc/dracut.conf.d/10-force-mmc.conf
+    * /etc/zzz.d/suspend/01-activate-lock.sh
+    * $HOME/.config/fcitx/profile $HOME/.config/fcitx/config
+    * This file itself.
+
+CONFIRM FUNCTIONALITY:
+- [DONE] Set up audio.
+- [DONE] Test hibernation, etc. | works with zzz and ZZZ
+- [DONE] Fix hwclock issue. (unclear what problem was)
+- [DONE] Figure out APCI/hardware clock issues. (possibly not an issue?)
+- [DONE] Ensure battery is set up correctly. (seems okay)
+- [DONE] Confirm sleep on shut laptop lid, etc.
+
+AESTHETICS:
+- [DONE] Install a nicer font. liberation-fonts-ttf
+- [DONE] Set up higher contrast Vim color scheme (after font).
+
+JAPANESE:
+- [DONE] Set up Japanese input, etc.
+    * Ultimately, this is what worked: https://srobb.net/jpninpt.html#VoidLinux
+- [DONE] Set up Anki and yomichan, etc.
+- [DONE] Remove dbus if not needed.
+
+SOFTWARE AND WORKFLOW:
+- [DONE] Install Fish etc.
+- [DONE] Set default shell to fish.
+- [DONE] Invert mouse scroll direction.
+- [DONE] Set up slock.
+- [DONE] Enable tap to click.
+- [DONE] Set up NTP (or something).
+- [DONE] Import SSH certificates etc.
+- [DONE] Install a system logger (socklog).
+- [DONE] Set up slock to work after sleep and hibernation, etc.!
+- [DONE] Disable trackpad while typing (consult other laptop).
+
+
+===================
+DEFERRED TODO ITEMS
+===================
+
+HOUSEKEEPING:
+- Move xinput config from .xprofile to system X11 config files.
+- Consider removing SSH agent stuff from .bashrc.
+
+JAPANESE:
+- Figure out why Japanese input doesn't work in Telegram.
+
+SOFTWARE AND WORKFLOW:
+- Set up email in Mutt.
+- Set up pass w/ passocde? Encrypted partition?
+- Install Element etc.
+- Set up hibernate on low battery?
+- Set up a better net manager or figure out wpa_supplicant?
+  (consider Conman)
+
+
+==================
+PACKAGES INSTALLED
+==================
+
+alsa-utils
+base-system
+bash-completion
+cryptsetup
+dmenu
+fcitx-mozc
+feh
+firefox
+fish-shell
+fzf
+gcc
+git
+grub-i386-efi
+grub-x86_64-efi
+intel-ucode
+intel-video-accel
+libX11-devel
+libXft-devel
+libXinerama-devel
+libXrandr-devel
+libedit-devel
+liberation-fonts-ttf
+libffi-devel
+lvm2
+make
+mdadm
+mesa-dri
+mesa-vulkan-intel
+neofetch
+nnn
+noto-fonts-cjk
+ntp
+pkg-config
+psmisc
+ruby
+scrot
+socklog-void
+stow
+telegram-desktop
+tmux
+unzip
+vim
+void-docs-browse
+void-repo-nonfree
+vulkan-loader
+xorg
+xterm
+xtools
+zathura
+zathura-pdf-poppler
+zip
+zstd

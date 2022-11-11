@@ -1,0 +1,32 @@
+###################################################
+# Set IME related environment variables.
+###################################################
+export GTK_IM_MODULE=xim
+export QT4_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+
+###################################################
+# Configure system specific input settings.
+###################################################
+
+# XXX: These would probably be better off in system X11 config files,
+# but for now they are going to live here.
+
+# Natural scrolling. See https://askubuntu.com/a/519859.
+xinput set-prop 11 344 -66 -66
+
+# Tap-to-click. See man(4) synaptics /TapButton1.
+xinput set-prop 11 351 0 0 0 0 1 0 0
+
+# Disable scrolling and tapping briefly after a key press.
+# See https://wiki.archlinux.org/title/Touchpad_Synaptics.
+syndaemon -i 0.5 -t -K -R -d
+
+
+###################################################
+# Start system specific software.
+###################################################
+
+fcitx -d &

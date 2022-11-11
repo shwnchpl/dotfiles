@@ -35,10 +35,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# Autostart some nice programs.
-feh --bg-fill ~/.config/wallpaper.local/*.png 2> /dev/null
-~/bin/stable-notification-daemon.sh &
-ibus-daemon -rdx
+# Paint desktop background.
+feh --bg-fill ~/.config/wallpaper.local/* 2> /dev/null
 
 # Start window manager.
 case $WM in

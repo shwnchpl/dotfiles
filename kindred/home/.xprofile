@@ -1,0 +1,11 @@
+# Set IME related environment variables.
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export QT4_IM_MODULE=ibus
+
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
+# Start system specific software.
+~/bin/stable-notification-daemon.sh &
+ibus-daemon -rdx

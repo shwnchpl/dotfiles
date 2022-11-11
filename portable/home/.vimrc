@@ -160,7 +160,7 @@ augroup CursorLine
 augroup END
 
 if $VIM_NO_PLUGINS != 1
-    colorscheme Revolution
+    colorscheme mod8
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
