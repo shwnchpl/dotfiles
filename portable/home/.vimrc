@@ -48,6 +48,7 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'elixir-editors/vim-elixir'
     Plugin 'habamax/vim-godot'
     Plugin 'tpope/vim-abolish'
+    Plugin 'ocaml/vim-ocaml'
 
     " FIXME: Switch back to upstream (s/shwnchpl/dag) if my pull
     " request is ever accepted.
@@ -312,6 +313,9 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')
 
 " Treat golang files as Linux kernel style source.
 autocmd FileType go call s:LinuxSrcToggle()
+
+" Indent OCaml files with only two spaces.
+autocmd FileType ocaml setlocal shiftwidth=2 softtabstop=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x08] - External Includes

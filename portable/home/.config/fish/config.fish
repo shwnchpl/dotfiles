@@ -26,6 +26,11 @@ if test -e ~/.config/fish/local-env.fish
     . ~/.config/fish/local-env.fish
 end
 
+# If ~/.opam/opam-init/init.fish exists, source it.
+if test -e ~/.opam/opam-init/init.fish
+    . ~/.opam/opam-init/init.fish
+end
+
 if status is-interactive
     # Set up custom key bindings.
     fish_vi_key_bindings

@@ -51,6 +51,7 @@ SOFTWARE AND WORKFLOW:
 - [DONE] Install a system logger (socklog).
 - [DONE] Set up slock to work after sleep and hibernation, etc.!
 - [DONE] Disable trackpad while typing (consult other laptop).
+- [DONE] Get wpa_supplicant running automatically as a service again.
 
 
 ===================
