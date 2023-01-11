@@ -314,8 +314,11 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')
 " Treat golang files as Linux kernel style source.
 autocmd FileType go call s:LinuxSrcToggle()
 
-" Indent OCaml files with only two spaces.
-autocmd FileType ocaml setlocal shiftwidth=2 softtabstop=2
+" Indent certain files with only two spaces.
+augroup double_space_indent
+    autocmd!
+    autocmd FileType ocaml,java setlocal shiftwidth=2 softtabstop=2
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x08] - External Includes
