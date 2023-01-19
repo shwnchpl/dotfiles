@@ -1,0 +1,81 @@
+#!/bin/bash
+
+#
+# git-stpush: A convenience wrapper for git subtree push.
+#
+# Copyright (C) 2023 Shawn M. Chapla <shawn@chapla.email>
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+# CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+# TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+
+if [ $# -eq 0 ]; then
+        set -- -h
+fi
+
+opts_spec="\
+git stpush <subtree>
+
+Convenient wrapper for pushing to a git subtree. Allows pushing to a
+subtree from any directory in a repo. For maximum convenience, use with
+a remote for the subtree to be pushed with the same name as the
+directory representing the root of the subtree to be pushed.
+
+For example:
+
+    $ mkdir ./+subtree-foo
+    $ echo 'Hello, World!' > ./+subtree-foo/bar.txt
+    $ git add ./+subtree-foo/bar.txt && git commit -m 'bas'
+    $ git remote add +subtree-foo https://path.to.foo.git/
+
+now from the project root:
+
+    $ git stpush +subtree-foo
+
+or alternatively:
+
+    $ cd ./+subtree-foo
+    $ git stpush .
+
+--
+h,help      show the help
+r,remote=   remote or repo to which to push (default: <subtree>)
+b,branch=   branch/ref onto which to push (default: working branch)
+"
+
+eval "$(echo "$opts_spec" | git rev-parse --parseopt -- "$@" || echo exit $?)"
+
+while [ $# -gt 0 ]; do
+    opt="$1"
+    shift
+    case "$opt" in
+        -r) remote=$1; shift ;;
+        -b) branch=$1; shift ;;
+        --) break ;;
+        *) die "Unexpected option: $opt" ;;
+    esac
+done
+
+toplevel="$(git rev-parse --show-toplevel)"
+subtree="$(realpath --relative-to $toplevel $1)"
+remote=${remote:-$(basename $subtree)}
+branch=${branch:-"$(git rev-parse --abbrev-ref HEAD)"}
+
+cd "$toplevel"
+git subtree push -P "$subtree" "$remote" "$branch"
