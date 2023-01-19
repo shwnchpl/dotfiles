@@ -12,7 +12,7 @@
 	ff = only
 
 [alias]
-	pushall = !git remote | xargs -L1 git push
+	pushall = !git remote | grep -ve "^+.*" | xargs -L1 git push
 
-[includeIf "gitdir:~/work/"]
+[includeIf "gitdir:**/work*/"]
 	path = ~/work/.gitconfig_include
