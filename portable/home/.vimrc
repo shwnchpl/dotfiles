@@ -49,6 +49,8 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'habamax/vim-godot'
     Plugin 'tpope/vim-abolish'
     Plugin 'ocaml/vim-ocaml'
+    Plugin 'habamax/vim-asciidoctor'
+    Plugin 'shwnchpl/vim-cspicker'
 
     " FIXME: Switch back to upstream (s/shwnchpl/dag) if my pull
     " request is ever accepted.
@@ -161,7 +163,7 @@ augroup CursorLine
 augroup END
 
 if $VIM_NO_PLUGINS != 1
-    colorscheme mod8
+    colorscheme brogrammer
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
