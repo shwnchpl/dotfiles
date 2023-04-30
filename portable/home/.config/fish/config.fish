@@ -43,10 +43,13 @@ if status is-interactive
 
     # Set fish specific environment variables.
     set -gx fish_greeting
-    set -gx fish_color_at           brgreen
+    set -gx fish_color_user         cyan
+    set -gx fish_color_brack        -o brred
+    set -gx fish_color_at           -o brgreen
     set -gx fish_color_cwd          blue
-    set -gx fish_color_host         brgreen
+    set -gx fish_color_host         cyan
     set -gx fish_color_host_remote  yellow
+    set -gx fish_color_suffix       brwhite
 
     # Disable vim mode indicator
     function fish_mode_prompt

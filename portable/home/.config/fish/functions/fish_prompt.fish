@@ -7,7 +7,7 @@ function fish_prompt --description 'Write out the prompt'
 
         # Color the prompt differently when we're root
         set -l color_cwd $fish_color_cwd
-        set -l suffix '$'
+        set -l suffix (set_color $fish_color_suffix) '$' (set_color normal)
         if functions -q fish_is_root_user; and fish_is_root_user
             if set -q fish_color_cwd_root
                 set color_cwd $fish_color_cwd_root
@@ -30,9 +30,11 @@ function fish_prompt --description 'Write out the prompt'
         set -l status_color (set_color $fish_color_status)
         set -l statusb_color (set_color $bold_flag $fish_color_status)
         set -l prompt_status \
-            (__fish_print_pipestatus "[" "]" "|" "$status_color" \
+            (__fish_print_pipestatus " (" ")" "|" "$status_color" \
                 "$statusb_color" $last_pipestatus)
+        set -l lbrack (set_color $fish_color_brack) '[' (set_color normal)
+        set -l rbrack (set_color $fish_color_brack) ']' (set_color normal)
 
-        echo -n -s (prompt_login)':' (set_color $color_cwd) (prompt_pwd) \
-            $normal $prompt_status $suffix " "
+        echo -ns $lbrack (prompt_login) ' ' (set_color $color_cwd) \
+            (prompt_pwd) $normal $prompt_status $rbrack $suffix " "
 end

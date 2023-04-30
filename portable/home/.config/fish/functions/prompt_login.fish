@@ -30,6 +30,8 @@ function prompt_login --description \
         set color_at $fish_color_at
     end
 
-    echo -n -s (set_color $fish_color_user) "$USER" (set_color $color_at) @ \
+    set -l at_sym (set_color $color_at) '@' (set_color normal)
+
+    echo -n -s (set_color $fish_color_user) "$USER" $at_sym \
         (set_color $color_host) (prompt_hostname) (set_color normal)
 end
