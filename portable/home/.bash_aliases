@@ -8,7 +8,7 @@ alias sudo="sudo "
 # Default to clipboard selection in xclip
 alias xclip='xclip -selection clipboard'
 
-# Shwo hidden files in nnn.
+# Show hidden files in nnn.
 alias nnn="nnn -d"
 
 alias lkvim="VIM_FMT_OVERRIDE=lk-src vim"
