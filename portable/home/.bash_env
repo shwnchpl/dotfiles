@@ -27,4 +27,7 @@ prepend_path "$HOME/local/bin"
 
 export PATH
 
+# Add local/lib to LD_LIBRARY_PATH.
+export LD_LIBRARY_PATH="$HOME/local/lib:$LD_LIBRARY_PATH"
+
 # vim: set filetype=bash:
