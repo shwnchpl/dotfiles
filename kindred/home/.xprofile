@@ -7,5 +7,5 @@ export QT4_IM_MODULE=ibus
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 # Start system specific software.
-~/bin/stable-notification-daemon.sh &
+$HOME/bin/stable-notification-daemon.sh &
 ibus-daemon -rdx
