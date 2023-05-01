@@ -23,7 +23,7 @@ export NNN_RESTRICT_NAV_OPEN=1
 prepend_path "/sbin"
 prepend_path "$HOME/.cargo/bin"
 prepend_path "$HOME/.local/go/bin"
-prepend_path "$HOME/bin"
+prepend_path "$HOME/local/bin"
 
 export PATH
 
