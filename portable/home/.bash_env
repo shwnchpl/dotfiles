@@ -25,6 +25,9 @@ prepend_path "$HOME/.cargo/bin"
 prepend_path "$HOME/.local/go/bin"
 prepend_path "$HOME/local/bin"
 
+which ruby &> /dev/null && which gem &> /dev/null && \
+    prepend_path "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
+
 export PATH
 
 # Add local/lib to LD_LIBRARY_PATH.
