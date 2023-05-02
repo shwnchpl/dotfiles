@@ -19,14 +19,17 @@ export GOPATH="$HOME/.local/go"
 export NNN_USE_EDITOR=1
 export NNN_RESTRICT_NAV_OPEN=1
 
+# Configure default Ruby Gem  and bundle install location.
+export GEM_HOME="$HOME/.local/ruby/gems"
+export GEM_PATH="$GEM_HOME"
+export BUNDLE_PATH="$GEM_HOME"
+
 # Configure PATH.
 prepend_path "/sbin"
 prepend_path "$HOME/.cargo/bin"
 prepend_path "$HOME/.local/go/bin"
 prepend_path "$HOME/local/bin"
-
-which ruby &> /dev/null && which gem &> /dev/null && \
-    prepend_path "$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
+prepend_path "$GEM_HOME/bin"
 
 export PATH
 

@@ -286,6 +286,9 @@ else
     map <C-k> :edit .<CR>
 endif
 
+map <Leader>U yypv$r=
+map <Leader>u yypv$r-
+
 " In netrw, make gn simply invoke :Ntree instead of using
 " its own special handling, which is noisy about 'errors'
 " when selecting a file to indicate target directory level.
@@ -319,7 +322,16 @@ autocmd FileType go call s:LinuxSrcToggle()
 " Indent certain files with only two spaces.
 augroup double_space_indent
     autocmd!
-    autocmd FileType ocaml,java setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType ocaml setlocal shiftwidth=2 softtabstop=2
+augroup END
+
+" Enable 'text mode' by default for certain plaintext file types.
+augroup text_mode_default
+    autocmd!
+    autocmd FileType asciidoc,asciidoctor setlocal tw=72
+    autocmd FileType markdown setlocal tw=72
+    autocmd FileType rst setlocal tw=72
+    autocmd FileType text setlocal tw=72
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""

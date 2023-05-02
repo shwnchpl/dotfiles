@@ -17,3 +17,6 @@ alias pacman-autoremove="bash -c \"pacman -Qtdq | pacman -Rns -\""
 
 alias gri="grep -rnI . -e"
 alias ip="ip -color=auto"
+
+# Split manually wrapped text into single lines.
+alias flow-text="sed -e ':a;N;\$!ba;s/\(.\)\n/\1 /g' -e 's/\n/\n\n/'"
