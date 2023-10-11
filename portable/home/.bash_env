@@ -23,13 +23,17 @@ export NNN_RESTRICT_NAV_OPEN=1
 export GEM_HOME="$HOME/.local/ruby/gems"
 export GEM_PATH="$GEM_HOME"
 export BUNDLE_PATH="$GEM_HOME"
+export GHCUP_INSTALL_BASE_PREFIX="$HOME"
 
 # Configure PATH.
 prepend_path "/sbin"
 prepend_path "$HOME/.cargo/bin"
 prepend_path "$HOME/.local/go/bin"
+prepend_path "$HOME/.local/bin"
 prepend_path "$HOME/local/bin"
 prepend_path "$GEM_HOME/bin"
+prepend_path "$HOME/.cabal/bin"
+prepend_path "$HOME/.ghcup/bin"
 
 export PATH
 
