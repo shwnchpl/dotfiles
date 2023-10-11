@@ -51,6 +51,7 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'ocaml/vim-ocaml'
     Plugin 'habamax/vim-asciidoctor'
     Plugin 'shwnchpl/vim-cspicker'
+    Plugin 'neovimhaskell/haskell-vim'
 
     " FIXME: Switch back to upstream (s/shwnchpl/dag) if my pull
     " request is ever accepted.
@@ -99,6 +100,9 @@ set cpoptions+=W
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+
+" Disable haskell-vim indentation.
+let g:haskell_indent_disable = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " [SEC_0x04] - Formatting
@@ -323,6 +327,13 @@ autocmd FileType go call s:LinuxSrcToggle()
 augroup double_space_indent
     autocmd!
     autocmd FileType ocaml setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType html setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType haskell setlocal shiftwidth=2 softtabstop=2
+augroup END
+
+augroup functional_indentation
+    autocmd!
+    autocmd FileType haskell setlocal autoindent nocindent smartindent
 augroup END
 
 " Enable 'text mode' by default for certain plaintext file types.
