@@ -16,11 +16,11 @@ export XMODIFIERS=@im=fcitx
 
 # Natural scrolling. See https://askubuntu.com/a/519859.
 # Synaptics Scrolling Distance (346).
-xinput set-prop 10 346 -66 -66
+xinput set-prop 10 352 -66 -66
 
 # Tap-to-click. See man(4) synaptics /TapButton1.
 # Synaptics Tap Action (353).
-xinput set-prop 10 353 0 0 0 0 1 0 0
+xinput set-prop 10 359 0 0 0 0 1 0 0
 
 # Disable scrolling and tapping briefly after a key press.
 # See https://wiki.archlinux.org/title/Touchpad_Synaptics.
