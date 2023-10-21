@@ -52,6 +52,7 @@ if $VIM_NO_PLUGINS != 1
     Plugin 'habamax/vim-asciidoctor'
     Plugin 'shwnchpl/vim-cspicker'
     Plugin 'neovimhaskell/haskell-vim'
+    Plugin 'andy-morris/alex.vim'
 
     " FIXME: Switch back to upstream (s/shwnchpl/dag) if my pull
     " request is ever accepted.
@@ -329,11 +330,13 @@ augroup double_space_indent
     autocmd FileType ocaml setlocal shiftwidth=2 softtabstop=2
     autocmd FileType html setlocal shiftwidth=2 softtabstop=2
     autocmd FileType haskell setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType alex setlocal shiftwidth=2 softtabstop=2
 augroup END
 
 augroup functional_indentation
     autocmd!
     autocmd FileType haskell setlocal autoindent nocindent smartindent
+    autocmd FileType alex setlocal shiftwidth=2 softtabstop=2
 augroup END
 
 " Enable 'text mode' by default for certain plaintext file types.
